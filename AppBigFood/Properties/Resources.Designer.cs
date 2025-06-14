@@ -103,6 +103,16 @@ namespace AppBigFood.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_page_icon_icons_com_71787 {
+            get {
+                object obj = ResourceManager.GetObject("add-page_icon-icons.com_71787", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Add_User_icon_icons_com_55971 {
             get {
                 object obj = ResourceManager.GetObject("Add_User_icon-icons.com_55971", resourceCulture);
@@ -146,6 +156,16 @@ namespace AppBigFood.Properties {
         internal static System.Drawing.Bitmap essential_save_web_security_save_card_keep_data_ui_icon_210535 {
             get {
                 object obj = ResourceManager.GetObject("essential_save_web_security_save_card_keep_data_ui_icon_210535", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maintenance_license_icon_216320 {
+            get {
+                object obj = ResourceManager.GetObject("maintenance_license_icon_216320", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

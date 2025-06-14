@@ -16,5 +16,10 @@ namespace AppBigFood.Views.Producto
         {
             InitializeComponent();
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

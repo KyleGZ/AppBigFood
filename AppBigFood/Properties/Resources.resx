@@ -118,17 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="right_icon_176640" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\right_icon_176640.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add_circle_create_expand_new_plus_icon_123218" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_circle_create_expand_new_plus_icon_123218.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3844476-eye-see-show-view-watch_110339" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3844476-eye-see-show-view-watch_110339.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Add_User_icon-icons.com_55971" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add_User_icon-icons.com_55971.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_modify_icon-icons1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_modify_icon-icons.com_723901.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_circle_create_expand_new_plus_icon_123218" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_circle_create_expand_new_plus_icon_123218.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="essential_save_web_security_save_card_keep_data_ui_icon_210535" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\essential_save_web_security_save_card_keep_data_ui_icon_210535.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_modify_icon-icons.com_72390" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_modify_icon-icons.com_72390.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,22 +136,28 @@
   <data name="Search_find_3519" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search_find_3519.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add_circle_create_expand_new_plus_icon_1232181" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_circle_create_expand_new_plus_icon_1232181.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3844476-eye-see-show-view-watch_110339" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3844476-eye-see-show-view-watch_110339.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="right_icon_176640" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\right_icon_176640.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="4115230-cancel-close-cross-delete_114048" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4115230-cancel-close-cross-delete_114048.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="essential_save_web_security_save_card_keep_data_ui_icon_210535" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\essential_save_web_security_save_card_keep_data_ui_icon_210535.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user_icon-icons.com_57997" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_icon-icons.com_57997.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="maintenance_license_icon_216320" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maintenance_license_icon_216320.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit_User_icon-icons.com_55920" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_User_icon-icons.com_55920.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add_User_icon-icons.com_55971" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add_User_icon-icons.com_55971.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user_icon-icons.com_57997" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_icon-icons.com_57997.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_circle_create_expand_new_plus_icon_1232181" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_circle_create_expand_new_plus_icon_1232181.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add-page_icon-icons.com_71787" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-page_icon-icons.com_71787.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

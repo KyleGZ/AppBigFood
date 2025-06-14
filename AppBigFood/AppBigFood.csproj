@@ -157,6 +157,18 @@
     <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Producto\FrmActualizarProducto.resx">
+      <DependentUpon>FrmActualizarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Producto\FrmAgregarProducto.resx">
+      <DependentUpon>FrmAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Producto\FrmTablaProductos.resx">
+      <DependentUpon>FrmTablaProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario\FrmAgregarUsuario.resx">
+      <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -216,6 +228,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_circle_create_expand_new_plus_icon_1232181.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance_license_icon_216320.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-page_icon-icons.com_71787.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
