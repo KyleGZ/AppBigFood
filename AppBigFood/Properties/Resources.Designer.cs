@@ -93,6 +93,66 @@ namespace AppBigFood.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_circle_create_expand_new_plus_icon_1232181 {
+            get {
+                object obj = ResourceManager.GetObject("add_circle_create_expand_new_plus_icon_1232181", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Add_User_icon_icons_com_55971 {
+            get {
+                object obj = ResourceManager.GetObject("Add_User_icon-icons.com_55971", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_modify_icon_icons_com_72390 {
+            get {
+                object obj = ResourceManager.GetObject("edit_modify_icon-icons.com_72390", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_modify_icon_icons1 {
+            get {
+                object obj = ResourceManager.GetObject("edit_modify_icon-icons1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_User_icon_icons_com_55920 {
+            get {
+                object obj = ResourceManager.GetObject("Edit_User_icon-icons.com_55920", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap essential_save_web_security_save_card_keep_data_ui_icon_210535 {
+            get {
+                object obj = ResourceManager.GetObject("essential_save_web_security_save_card_keep_data_ui_icon_210535", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_icon_176640 {
             get {
                 object obj = ResourceManager.GetObject("right_icon_176640", resourceCulture);

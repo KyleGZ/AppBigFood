@@ -16,5 +16,15 @@ namespace AppBigFood.Views.Cliente
         {
             InitializeComponent();
         }
+
+        private void FrmAgregarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

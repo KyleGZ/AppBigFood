@@ -145,6 +145,15 @@
     <EmbeddedResource Include="Views\Auditoria\FrmFacturas.resx">
       <DependentUpon>FrmFacturas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cliente\FrmActualizarCliente.resx">
+      <DependentUpon>FrmActualizarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cliente\FrmAgregarCliente.resx">
+      <DependentUpon>FrmAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cliente\FrmTablaClientes.resx">
+      <DependentUpon>FrmTablaClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_circle_create_expand_new_plus_icon_123218.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_User_icon-icons.com_55920.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_modify_icon-icons.com_72390.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_modify_icon-icons.com_723901.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_User_icon-icons.com_55971.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\essential_save_web_security_save_card_keep_data_ui_icon_210535.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_circle_create_expand_new_plus_icon_1232181.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
