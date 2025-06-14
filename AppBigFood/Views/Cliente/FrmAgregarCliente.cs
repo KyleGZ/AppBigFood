@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppBigFood
+namespace AppBigFood.Views.Cliente
 {
-    public partial class Form1 : Form
+    public partial class FrmAgregarCliente : Form
     {
-        public Form1()
+        public FrmAgregarCliente()
         {
             InitializeComponent();
         }
