@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BLL
+{
+    public  class Factura
+    {
+        public int Id { get; set; }
+
+        public DateTime Fecha { get; set; }
+
+        public string Estado { get; set; }
+
+        public string TipoPa { get; set; }
+
+        public string Condicion { get; set; }
+
+        public int ClienteId { get; set; }
+
+        public double MontoDescuento { get; set; }
+
+        public double MontoImpuesto { get; set; }
+
+        public double Total { get; set; }
+    }
+}

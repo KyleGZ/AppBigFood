@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Users
+    public class ClienteGometa
     {
+        public string nombre { get; set; }
     }
 }
