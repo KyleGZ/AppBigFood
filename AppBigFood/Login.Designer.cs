@@ -34,13 +34,13 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnShowPass = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnShowPass = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,7 +69,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(92, 320);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(285, 34);
+            this.txtPassword.Size = new System.Drawing.Size(280, 34);
             this.txtPassword.TabIndex = 4;
             // 
             // label2
@@ -95,15 +95,6 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Ingresar";
             this.btnLogin.UseVisualStyleBackColor = false;
-            // 
-            // btnShowPass
-            // 
-            this.btnShowPass.Location = new System.Drawing.Point(378, 320);
-            this.btnShowPass.Name = "btnShowPass";
-            this.btnShowPass.Size = new System.Drawing.Size(29, 34);
-            this.btnShowPass.TabIndex = 6;
-            this.btnShowPass.Text = "I";
-            this.btnShowPass.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -161,6 +152,16 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
+            // 
+            // btnShowPass
+            // 
+            this.btnShowPass.BackgroundImage = global::AppBigFood.Properties.Resources._3844476_eye_see_show_view_watch_110339;
+            this.btnShowPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowPass.Location = new System.Drawing.Point(375, 320);
+            this.btnShowPass.Name = "btnShowPass";
+            this.btnShowPass.Size = new System.Drawing.Size(32, 34);
+            this.btnShowPass.TabIndex = 6;
+            this.btnShowPass.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 

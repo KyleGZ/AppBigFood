@@ -136,6 +136,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,6 +171,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\right_icon_176640.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3844476-eye-see-show-view-watch_110339.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search_find_3519.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_circle_create_expand_new_plus_icon_123218.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
