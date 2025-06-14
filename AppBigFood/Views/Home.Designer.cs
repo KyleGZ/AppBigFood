@@ -429,7 +429,7 @@
             this.btnAgregarProducto.BackgroundImage = global::AppBigFood.Properties.Resources.add_circle_create_expand_new_plus_icon_123218;
             this.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarProducto.Location = new System.Drawing.Point(459, 263);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(453, 263);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(40, 34);
             this.btnAgregarProducto.TabIndex = 20;
@@ -476,7 +476,7 @@
             this.btnBuscarProducto.BackgroundImage = global::AppBigFood.Properties.Resources.Search_find_3519;
             this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProducto.Location = new System.Drawing.Point(459, 101);
+            this.btnBuscarProducto.Location = new System.Drawing.Point(453, 101);
             this.btnBuscarProducto.Name = "btnBuscarProducto";
             this.btnBuscarProducto.Size = new System.Drawing.Size(40, 34);
             this.btnBuscarProducto.TabIndex = 15;

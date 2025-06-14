@@ -136,6 +136,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Auditoria\FrmBitacora.resx">
+      <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Auditoria\FrmCuentasXCobrar.resx">
+      <DependentUpon>FrmCuentasXCobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Auditoria\FrmFacturas.resx">
+      <DependentUpon>FrmFacturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
