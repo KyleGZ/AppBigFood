@@ -44,7 +44,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             return null;
         }//Fin del método GetProductos
@@ -78,7 +78,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             return null;
 
@@ -152,7 +152,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             return false;
         }

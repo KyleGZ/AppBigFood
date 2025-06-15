@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgregarProducto));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtCodigoInterno = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtExistencias = new System.Windows.Forms.TextBox();
@@ -47,12 +53,6 @@
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCodigoInterno = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,66 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 700);
             this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.Location = new System.Drawing.Point(396, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(284, 49);
+            this.panel2.TabIndex = 44;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel3.Location = new System.Drawing.Point(0, 47);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(284, 49);
+            this.panel3.TabIndex = 43;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AppBigFood.Properties.Resources.add_page_icon_icons_com_71787;
+            this.pictureBox1.Location = new System.Drawing.Point(290, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtCodigoInterno
+            // 
+            this.txtCodigoInterno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoInterno.Location = new System.Drawing.Point(40, 241);
+            this.txtCodigoInterno.Name = "txtCodigoInterno";
+            this.txtCodigoInterno.Size = new System.Drawing.Size(273, 34);
+            this.txtCodigoInterno.TabIndex = 41;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(36, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 23);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Codigo interno";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = global::AppBigFood.Properties.Resources.add_circle_create_expand_new_plus_icon_1232181;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(361, 637);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(273, 40);
+            this.btnAgregar.TabIndex = 39;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // rtxtDescripcion
             // 
@@ -241,65 +301,6 @@
             this.label3.Size = new System.Drawing.Size(216, 31);
             this.label3.TabIndex = 22;
             this.label3.Text = "Datos del producto";
-            // 
-            // txtCodigoInterno
-            // 
-            this.txtCodigoInterno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoInterno.Location = new System.Drawing.Point(40, 241);
-            this.txtCodigoInterno.Name = "txtCodigoInterno";
-            this.txtCodigoInterno.Size = new System.Drawing.Size(273, 34);
-            this.txtCodigoInterno.TabIndex = 41;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 214);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 23);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Codigo interno";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel2.Location = new System.Drawing.Point(396, 47);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(284, 49);
-            this.panel2.TabIndex = 44;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel3.Location = new System.Drawing.Point(0, 47);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(284, 49);
-            this.panel3.TabIndex = 43;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AppBigFood.Properties.Resources.add_page_icon_icons_com_71787;
-            this.pictureBox1.Location = new System.Drawing.Point(290, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Image = global::AppBigFood.Properties.Resources.add_circle_create_expand_new_plus_icon_1232181;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(361, 637);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(273, 40);
-            this.btnAgregar.TabIndex = 39;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
             // 
             // FrmAgregarProducto
             // 

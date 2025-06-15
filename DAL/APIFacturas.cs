@@ -77,7 +77,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             return null;
         }//Cierre del método GetCliente
