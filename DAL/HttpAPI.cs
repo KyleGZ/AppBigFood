@@ -18,6 +18,15 @@ namespace DAL
             return client;
         }
 
+        public HttpClient IniciarSeguridad()
+        {
+            var client = new HttpClient();
+
+            client.BaseAddress = new Uri("http://www.puntoventa.somee.com/");
+
+            return client;
+        }
+
         public HttpClient Gometa()
         {
             var client = new HttpClient();
