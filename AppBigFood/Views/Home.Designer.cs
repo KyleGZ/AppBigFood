@@ -31,34 +31,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informacionDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informacionDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuentasXCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.informacionDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.informacionDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuentasXCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvCarrito = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,19 +67,16 @@
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.cbCondicion = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbTipoPago = new System.Windows.Forms.ComboBox();
@@ -91,6 +86,11 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
@@ -109,7 +109,7 @@
             this.opcionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1076, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1076, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,8 +120,24 @@
             this.informacionDeClientesToolStripMenuItem,
             this.toolStripSeparator2});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
+            // 
+            // informacionDeClientesToolStripMenuItem
+            // 
+            this.informacionDeClientesToolStripMenuItem.Name = "informacionDeClientesToolStripMenuItem";
+            this.informacionDeClientesToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.informacionDeClientesToolStripMenuItem.Text = "Informacion de Clientes";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
             // 
             // productosToolStripMenuItem
             // 
@@ -130,8 +146,24 @@
             this.informacionDeProductosToolStripMenuItem,
             this.toolStripSeparator4});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
             this.productosToolStripMenuItem.Text = "Productos";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(261, 6);
+            // 
+            // informacionDeProductosToolStripMenuItem
+            // 
+            this.informacionDeProductosToolStripMenuItem.Name = "informacionDeProductosToolStripMenuItem";
+            this.informacionDeProductosToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
+            this.informacionDeProductosToolStripMenuItem.Text = "Informacion de productos";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(261, 6);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -140,8 +172,24 @@
             this.agregarUsuarioToolStripMenuItem,
             this.toolStripSeparator6});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(197, 6);
+            // 
+            // agregarUsuarioToolStripMenuItem
+            // 
+            this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(197, 6);
             // 
             // auditoriaToolStripMenuItem
             // 
@@ -154,8 +202,46 @@
             this.bitacoraToolStripMenuItem,
             this.toolStripSeparator10});
             this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
-            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(203, 6);
+            // 
+            // facturasToolStripMenuItem
+            // 
+            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.facturasToolStripMenuItem.Text = "Facturas";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(203, 6);
+            // 
+            // cuentasXCobrarToolStripMenuItem
+            // 
+            this.cuentasXCobrarToolStripMenuItem.Name = "cuentasXCobrarToolStripMenuItem";
+            this.cuentasXCobrarToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.cuentasXCobrarToolStripMenuItem.Text = "Cuentas X Cobrar";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(203, 6);
+            // 
+            // bitacoraToolStripMenuItem
+            // 
+            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(203, 6);
             // 
             // opcionesToolStripMenuItem
             // 
@@ -164,110 +250,24 @@
             this.cerrarSesionToolStripMenuItem,
             this.toolStripSeparator12});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.opcionesToolStripMenuItem.Text = "Opciones";
-            // 
-            // informacionDeClientesToolStripMenuItem
-            // 
-            this.informacionDeClientesToolStripMenuItem.Name = "informacionDeClientesToolStripMenuItem";
-            this.informacionDeClientesToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
-            this.informacionDeClientesToolStripMenuItem.Text = "Informacion de Clientes";
-            // 
-            // informacionDeProductosToolStripMenuItem
-            // 
-            this.informacionDeProductosToolStripMenuItem.Name = "informacionDeProductosToolStripMenuItem";
-            this.informacionDeProductosToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
-            this.informacionDeProductosToolStripMenuItem.Text = "Informacion de productos";
-            // 
-            // agregarUsuarioToolStripMenuItem
-            // 
-            this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
-            // 
-            // facturasToolStripMenuItem
-            // 
-            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.facturasToolStripMenuItem.Text = "Facturas";
-            // 
-            // cuentasXCobrarToolStripMenuItem
-            // 
-            this.cuentasXCobrarToolStripMenuItem.Name = "cuentasXCobrarToolStripMenuItem";
-            this.cuentasXCobrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.cuentasXCobrarToolStripMenuItem.Text = "Cuentas X Cobrar";
-            // 
-            // bitacoraToolStripMenuItem
-            // 
-            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.bitacoraToolStripMenuItem.Text = "Bitacora";
-            // 
-            // cerrarSesionToolStripMenuItem
-            // 
-            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(261, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(261, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(221, 6);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(176, 6);
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
             // 
             // panel3
             // 
@@ -300,32 +300,6 @@
             this.label12.Size = new System.Drawing.Size(113, 23);
             this.label12.TabIndex = 21;
             this.label12.Text = "Total a pagar:";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(213, 496);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(192, 34);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar Compra";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(10, 496);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(192, 34);
-            this.btnAceptar.TabIndex = 2;
-            this.btnAceptar.Text = "Confirmar Compra";
-            this.btnAceptar.UseVisualStyleBackColor = false;
             // 
             // label11
             // 
@@ -424,17 +398,6 @@
             this.panel2.Size = new System.Drawing.Size(525, 334);
             this.panel2.TabIndex = 5;
             // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.BackgroundImage = global::AppBigFood.Properties.Resources.add_circle_create_expand_new_plus_icon_123218;
-            this.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarProducto.Location = new System.Drawing.Point(453, 263);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(40, 34);
-            this.btnAgregarProducto.TabIndex = 20;
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            // 
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -471,17 +434,6 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "Precio";
             // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.BackgroundImage = global::AppBigFood.Properties.Resources.Search_find_3519;
-            this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProducto.Location = new System.Drawing.Point(453, 101);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(40, 34);
-            this.btnBuscarProducto.TabIndex = 15;
-            this.btnBuscarProducto.UseVisualStyleBackColor = true;
-            // 
             // txtNombreProducto
             // 
             this.txtNombreProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -505,7 +457,7 @@
             this.txtCodigoProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoProducto.Location = new System.Drawing.Point(24, 101);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
-            this.txtCodigoProducto.Size = new System.Drawing.Size(411, 34);
+            this.txtCodigoProducto.Size = new System.Drawing.Size(332, 34);
             this.txtCodigoProducto.TabIndex = 12;
             // 
             // label7
@@ -545,17 +497,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(525, 334);
             this.panel1.TabIndex = 4;
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.BackgroundImage = global::AppBigFood.Properties.Resources.Search_find_3519;
-            this.btnBuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.Location = new System.Drawing.Point(465, 101);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 34);
-            this.btnBuscarCliente.TabIndex = 9;
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
             // cbCondicion
             // 
@@ -625,7 +566,7 @@
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula.Location = new System.Drawing.Point(30, 101);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(429, 34);
+            this.txtCedula.Size = new System.Drawing.Size(332, 34);
             this.txtCedula.TabIndex = 2;
             // 
             // label2
@@ -647,6 +588,81 @@
             this.label1.Size = new System.Drawing.Size(253, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Informacion del cliente";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Image = global::AppBigFood.Properties.Resources._4115230_cancel_close_cross_delete_1140481;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(248, 496);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(207, 34);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "       Cancelar Compra";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.White;
+            this.btnAceptar.Image = global::AppBigFood.Properties.Resources.creditcard_payment_4578;
+            this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAceptar.Location = new System.Drawing.Point(10, 496);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(207, 34);
+            this.btnAceptar.TabIndex = 2;
+            this.btnAceptar.Text = "        Confirmar Compra";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.BackColor = System.Drawing.Color.White;
+            this.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProducto.Image = global::AppBigFood.Properties.Resources.shopping_cart_market_ecommerce_icon_144576;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(453, 259);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(40, 40);
+            this.btnAgregarProducto.TabIndex = 20;
+            this.btnAgregarProducto.UseVisualStyleBackColor = false;
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.Image = global::AppBigFood.Properties.Resources.Search_find_35191;
+            this.btnBuscarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(362, 97);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(137, 40);
+            this.btnBuscarProducto.TabIndex = 15;
+            this.btnBuscarProducto.Text = "    Buscar";
+            this.btnBuscarProducto.UseVisualStyleBackColor = false;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarCliente.Image = global::AppBigFood.Properties.Resources.find_users_applications_search_2908;
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(368, 98);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(137, 40);
+            this.btnBuscarCliente.TabIndex = 9;
+            this.btnBuscarCliente.Text = "     Buscar";
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
             // 
             // Home
             // 

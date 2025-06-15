@@ -83,6 +83,16 @@ namespace AppBigFood.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4115230_cancel_close_cross_delete_1140481 {
+            get {
+                object obj = ResourceManager.GetObject("4115230-cancel-close-cross-delete_1140481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_circle_create_expand_new_plus_icon_123218 {
             get {
                 object obj = ResourceManager.GetObject("add_circle_create_expand_new_plus_icon_123218", resourceCulture);
@@ -116,6 +126,16 @@ namespace AppBigFood.Properties {
         internal static System.Drawing.Bitmap Add_User_icon_icons_com_55971 {
             get {
                 object obj = ResourceManager.GetObject("Add_User_icon-icons.com_55971", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap creditcard_payment_4578 {
+            get {
+                object obj = ResourceManager.GetObject("creditcard_payment_4578", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,6 +183,26 @@ namespace AppBigFood.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap find_users_applications_search_2908 {
+            get {
+                object obj = ResourceManager.GetObject("find_users_applications_search_2908", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_cancel_97589 {
+            get {
+                object obj = ResourceManager.GetObject("ic-cancel_97589", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap maintenance_license_icon_216320 {
             get {
                 object obj = ResourceManager.GetObject("maintenance_license_icon_216320", resourceCulture);
@@ -186,6 +226,26 @@ namespace AppBigFood.Properties {
         internal static System.Drawing.Bitmap Search_find_3519 {
             get {
                 object obj = ResourceManager.GetObject("Search_find_3519", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search_find_35191 {
+            get {
+                object obj = ResourceManager.GetObject("Search_find_35191", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_market_ecommerce_icon_144576 {
+            get {
+                object obj = ResourceManager.GetObject("shopping_cart_market_ecommerce_icon_144576", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

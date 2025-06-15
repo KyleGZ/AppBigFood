@@ -235,5 +235,23 @@
   <ItemGroup>
     <None Include="Resources\add-page_icon-icons.com_71787.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find_users_applications_search_2908.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search_find_35191.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_cart_market_ecommerce_icon_144576.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\creditcard_payment_4578.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic-cancel_97589.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4115230-cancel-close-cross-delete_1140481.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

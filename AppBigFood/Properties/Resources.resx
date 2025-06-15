@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="find_users_applications_search_2908" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\find_users_applications_search_2908.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add_circle_create_expand_new_plus_icon_123218" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_circle_create_expand_new_plus_icon_123218.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,11 +133,17 @@
   <data name="essential_save_web_security_save_card_keep_data_ui_icon_210535" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\essential_save_web_security_save_card_keep_data_ui_icon_210535.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_modify_icon-icons.com_72390" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_modify_icon-icons.com_72390.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="maintenance_license_icon_216320" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maintenance_license_icon_216320.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Search_find_3519" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search_find_3519.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-page_icon-icons.com_71787" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-page_icon-icons.com_71787.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="creditcard_payment_4578" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\creditcard_payment_4578.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_circle_create_expand_new_plus_icon_1232181" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_circle_create_expand_new_plus_icon_1232181.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +157,14 @@
   <data name="4115230-cancel-close-cross-delete_114048" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4115230-cancel-close-cross-delete_114048.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maintenance_license_icon_216320" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maintenance_license_icon_216320.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Search_find_35191" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search_find_35191.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit_modify_icon-icons.com_72390" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_modify_icon-icons.com_72390.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shopping_cart_market_ecommerce_icon_144576" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping_cart_market_ecommerce_icon_144576.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit_User_icon-icons.com_55920" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_User_icon-icons.com_55920.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +172,10 @@
   <data name="user_icon-icons.com_57997" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_icon-icons.com_57997.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add-page_icon-icons.com_71787" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-page_icon-icons.com_71787.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ic-cancel_97589" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic-cancel_97589.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="4115230-cancel-close-cross-delete_1140481" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4115230-cancel-close-cross-delete_1140481.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
