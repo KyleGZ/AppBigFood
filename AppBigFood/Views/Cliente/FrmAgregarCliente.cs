@@ -16,15 +16,15 @@ namespace AppBigFood.Views.Cliente
 {
     public partial class FrmAgregarCliente : Form
     {
-        private BLL.Cliente varObjClientes = null;
-        private APIClientes varObjApiClientes = null;
+        private BLL.Cliente clientes = null;
+        private APIClientes apiClientes = null;
         private HttpAPI _api;
         private ClienteGometa datosCliente = null;
 
         public FrmAgregarCliente()
         {
             InitializeComponent();
-            this.varObjApiClientes = new APIClientes();
+            this.apiClientes = new APIClientes();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -44,15 +44,17 @@ namespace AppBigFood.Views.Cliente
         {
             try
             {
-                this.varObjClientes = new BLL.Cliente();
-                this.varObjClientes.Id = 0;
-                this.varObjClientes.TipoCedula = cbTipoCedula.SelectedItem.ToString();
-                this.varObjClientes.cedula = txtCedula.Text.Trim();
-                this.varObjClientes.NombreCompleto = txtFullName.Text;
-                this.varObjClientes.Email = txtEmail.Text.Trim();
-                this.varObjClientes.Estado = "Activo";
-
-                this.varObjApiClientes.CrearCliente(this.varObjClientes);
+                    clientes = new BLL.Cliente()
+                    {
+                        cedulaLegal = txtCedula.Text.Trim(),
+                        tipoCedula = this.cbTipoCedula.Text.Substring(0,1),
+                        NombreCompleto = txtFullName.Text,
+                        Email = txtEmail.Text.Trim(),
+                        fechaRegistro = DateTime.Now,
+                        estado = char.Parse(this.cbEstado.Text.Substring(0, 1)),
+                        Usuario = int.Parse(this.txtUsuario.Text.Trim())
+                    };
+                this.apiClientes.CrearCliente(clientes);
 
                 MessageBox.Show("Cliente registrado correctamente", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -64,36 +66,41 @@ namespace AppBigFood.Views.Cliente
             }
         }
 
-        private void extraerDatos(string cedula)
+        private async void extraerDatos(string cedula)
         {
-
-            //Reglas de negocio
             try
-            { //Intento de conexion con la API
-
-                //Se crea instancia de la API
+            {
+                // Crear instancia y llamar la API
                 this._api = new HttpAPI();
-
-                //Se obtiene el objeto cliente para consumir la API
                 HttpClient client = this._api.Gometa();
 
-                //Se utiliza el metodo publico de la API Gometa
-                HttpResponseMessage response = client.GetAsync("cedulas/" + cedula).Result;
+                HttpResponseMessage response = client.GetAsync("/cedulas/" + cedula).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
-                    //Aqui lee los datos obtenidos del objeto JSON
-                    var result = response.Content.ReadAsStringAsync().Result;
-
-                    //Se convierte el objeto JSON al objeto TipoCambio del modelo
-                    datosCliente = JsonConvert.DeserializeObject<ClienteGometa>(result);
+                    var contenido = response.Content.ReadAsStringAsync().Result;
+                    datosCliente = JsonConvert.DeserializeObject<ClienteGometa>(contenido);
+                    this.txtFullName.Text = datosCliente.nombre;
                 }
-
-            }//En caso de error capturamos con la ex
+            }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Error al consultar la API: " + ex.Message);
             }
+        }
+        private void txtCedula_Leave(object sender, EventArgs e)
+        {
+            string cedula = txtCedula.Text.Trim();
+
+            if (!string.IsNullOrEmpty(cedula))
+            {
+                extraerDatos(cedula);
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }//
 }//

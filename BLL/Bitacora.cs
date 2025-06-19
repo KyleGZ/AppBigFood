@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace BLL
 {
     public class Bitacora
     {
-        public int Id { get; set; }
+        public string Tabla { get; set; }
 
-        public string usuario { get; set; }
+        public int Usuario { get; set; }
 
         public string Maquina { get; set; }
 

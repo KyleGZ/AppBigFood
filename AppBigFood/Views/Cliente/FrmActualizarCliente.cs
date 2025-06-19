@@ -14,24 +14,32 @@ namespace AppBigFood.Views.Cliente
 {
     public partial class FrmActualizarCliente : Form
     {
-        private BLL.Cliente varObjCliente = null;
-        private APIClientes varObjApiCliente = null;
+        private BLL.Cliente cliente = null;
+        private APIClientes apiCliente = null;
         private int tempID;
         public FrmActualizarCliente()
         {
             InitializeComponent();
-            varObjApiCliente=new APIClientes();
+            apiCliente = new APIClientes();
         }
         public void PasarDatos(BLL.Cliente pTemp)
         {
             try
             {
-                this.tempID = pTemp.Id;
-                this.txtCedula.Text = pTemp.cedula;
-                this.cbTipoCedula.Items.Add(pTemp.TipoCedula);
+                this.txtCedula.Text = pTemp.cedulaLegal;
+                switch (char.Parse(pTemp.tipoCedula))
+                {
+                    case 'N':
+                        this.cbTipoCedula.SelectedIndex=0;
+                        break;
+                    case 'E':
+                        this.cbTipoCedula.SelectedIndex = 1;
+                        break;
+                } 
                 this.txtFullName.Text = pTemp.NombreCompleto;
                 this.txtEmail.Text = pTemp.Email;
-                this.txtEstado.Text = pTemp.Estado;
+                //this.cbEstado.Items.Add(pTemp.estado);
+                this.txtUsuario.Text = pTemp.Usuario.ToString();
             }
             catch (Exception ex)
             {
@@ -56,15 +64,18 @@ namespace AppBigFood.Views.Cliente
         {
             try
             {
-                this.varObjCliente = new BLL.Cliente();
-                this.varObjCliente.Id = this.tempID;
-                this.varObjCliente.TipoCedula = this.cbTipoCedula.SelectedItem.ToString();
-                this.varObjCliente.cedula = this.txtCedula.Text.Trim();
-                this.varObjCliente.NombreCompleto = this.txtFullName.Text;
-                this.varObjCliente.Email = this.txtEmail.Text.Trim();
-                this.varObjCliente.Estado = this.txtEstado.Text.Trim();
+                cliente = new BLL.Cliente()
+                {
+                    cedulaLegal = this.txtCedula.Text.Trim(),
+                    tipoCedula = this.cbTipoCedula.Text.Substring(0, 1),
+                    NombreCompleto = this.txtFullName.Text.Trim(),
+                    Email = this.txtEmail.Text.Trim(),
+                    fechaRegistro = DateTime.Now,
+                    estado = char.Parse(this.cbEstado.Text.Substring(0, 1)),
+                    Usuario = int.Parse(txtUsuario.Text.Trim())
+                };
 
-                this.varObjApiCliente.ActualizarCliente(this.tempID, this.varObjCliente);
+                this.apiCliente.ActualizarCliente(cliente);
 
                 MessageBox.Show("Cliente modificado correctamente", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -76,5 +87,19 @@ namespace AppBigFood.Views.Cliente
                 throw ex;
             }
         }
+
+        //private void btnBuscar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        cliente = this.apiCliente.GetCliente(int.Parse(this.txtCedula.Text.Trim()));
+        //        PasarDatos(cliente);
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        MessageBox.Show(ex.Message, "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
     }//
 }//

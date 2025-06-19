@@ -31,7 +31,7 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Utilizamos los métodos para devolver los cliente
-                HttpResponseMessage response = client.GetAsync("api/Factura/facturas").Result;
+                HttpResponseMessage response = client.GetAsync("/Facturas/ListaFacturas").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -54,7 +54,7 @@ namespace DAL
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Factura GetFactura(int? ID)
+        public Factura GetFactura(int ID)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace DAL
                 //Consumimos la API
                 HttpClient client = _api.Inicial();
 
-                HttpResponseMessage response = client.GetAsync("api/Factura/" + ID).Result;
+                HttpResponseMessage response = client.GetAsync($"/Facturas/BuscarFacturaPorNumero?numero={ID}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -87,7 +87,7 @@ namespace DAL
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns></returns>
-        public bool CrearFactura(Compra compra)
+        public bool CrearFactura(Factura factura)
         {
             try
             {
@@ -98,11 +98,11 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Se serealiza el objeto paquete a json
-                var json = JsonConvert.SerializeObject(compra);
+                var json = JsonConvert.SerializeObject(factura);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Utilizamos el método Post del la API
-                HttpResponseMessage response = client.PostAsync("api/Factura", content).Result;
+                HttpResponseMessage response = client.PostAsync("/Facturas/AgregarFactura", content).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -124,7 +124,7 @@ namespace DAL
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns></returns>
-        public bool CrearFacturaDetalle(DetalleCompra compra)
+        public bool CrearFacturaDetalle(DetalleFactura detalle)
         {
             try
             {
@@ -135,11 +135,11 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Se serealiza el objeto paquete a json
-                var json = JsonConvert.SerializeObject(compra);
+                var json = JsonConvert.SerializeObject(detalle);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Utilizamos el método Post del la API
-                HttpResponseMessage response = client.PostAsync("api/Detalle/AgregarDetalle", content).Result;
+                HttpResponseMessage response = client.PostAsync("/DetalleFacturas/Save", content).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -156,7 +156,7 @@ namespace DAL
 
         }//Fin del método crear cliente
 
-        public List<CuentasPorCobrar> CuentasPorCobrar()
+        public List<CuentasXCobrar> CuentasPorCobrar()
         {
             try
             {
@@ -167,7 +167,7 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Utilizamos el método Post del la API
-                HttpResponseMessage response = client.GetAsync("api/CuentasXCobrar").Result;
+                HttpResponseMessage response = client.GetAsync("/CuentasPorCobrar/List").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -175,7 +175,7 @@ namespace DAL
                     var result = response.Content.ReadAsStringAsync().Result;
 
                     //Convertimos el objeto JSON al objeto modelo
-                    return JsonConvert.DeserializeObject<List<CuentasPorCobrar>>(result);
+                    return JsonConvert.DeserializeObject<List<CuentasXCobrar>>(result);
                 }
             }
             catch (Exception ex)
@@ -195,10 +195,10 @@ namespace DAL
                 _api = new HttpAPI();
 
                 //Consumimos la Api
-                HttpClient client = _api.Inicial();
+                HttpClient client = _api.Seguridad();
 
                 //Utilizamos el método Post del la API
-                HttpResponseMessage response = client.GetAsync("api/Bitacora").Result;
+                HttpResponseMessage response = client.GetAsync("/Bitacora/ListaBitacora").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -216,6 +216,37 @@ namespace DAL
             }
             return null;
 
-        }//Fin del método crear cliente
+        }
+        public bool CrearBitacora(Bitacora bitacora)
+        {
+            try
+            {
+                //Hacemos la instancia de la API
+                _api = new HttpAPI();
+
+                //Consumimos la Api
+                HttpClient client = _api.Seguridad();
+
+                //Se serealiza el objeto paquete a json
+                var json = JsonConvert.SerializeObject(bitacora);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                //Utilizamos el método Post del la API
+                HttpResponseMessage response = client.PostAsync("/Bitacora/AgregarBitacora", content).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //La edición del cliente se realizó correctamente
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Capturamos la excepción, pero no se realiza ninguna acción
+                throw ex;
+            }
+            return false;
+
+        }
     }
 }

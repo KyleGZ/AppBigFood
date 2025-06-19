@@ -13,16 +13,16 @@ namespace DAL
         {
             var client = new HttpClient();
 
-            client.BaseAddress = new Uri("http://www.puntoventa.somee.com/");
+            client.BaseAddress = new Uri("https://localhost:7141");
 
             return client;
         }
 
-        public HttpClient IniciarSeguridad()
+        public HttpClient Seguridad()
         {
             var client = new HttpClient();
 
-            client.BaseAddress = new Uri("http://www.puntoventa.somee.com/");
+            client.BaseAddress = new Uri("https://localhost:7284");
 
             return client;
         }

@@ -60,12 +60,13 @@ namespace AppBigFood.Views.Cliente
                 BLL.Cliente temp = new BLL.Cliente();
 
                 //Se rellenan los campos del objeto con la fila seleccionada
-                temp.Id = int.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[0].Value.ToString());
-                temp.TipoCedula = this.dgvTablaClientes.SelectedRows[0].Cells[2].Value.ToString();
-                temp.cedula = this.dgvTablaClientes.SelectedRows[0].Cells[1].Value.ToString();
-                temp.NombreCompleto = this.dgvTablaClientes.SelectedRows[0].Cells[3].Value.ToString();
-                temp.Email = this.dgvTablaClientes.SelectedRows[0].Cells[4].Value.ToString();
-                temp.Estado = this.dgvTablaClientes.SelectedRows[0].Cells[5].Value.ToString();
+                temp.cedulaLegal = this.dgvTablaClientes.SelectedRows[0].Cells[0].Value.ToString();
+                temp.tipoCedula = this.dgvTablaClientes.SelectedRows[0].Cells[1].Value.ToString();
+                temp.NombreCompleto = this.dgvTablaClientes.SelectedRows[0].Cells[2].Value.ToString();
+                temp.Email = this.dgvTablaClientes.SelectedRows[0].Cells[3].Value.ToString();
+                temp.fechaRegistro = DateTime.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[4].Value.ToString());
+                temp.estado = char.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[5].Value.ToString());
+                temp.Usuario = int.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[6].Value.ToString());
 
                 //Se pasa el objeto al formulario
                 frm.PasarDatos(temp);
@@ -95,7 +96,7 @@ namespace AppBigFood.Views.Cliente
                 if (MessageBox.Show("Desea eliminar el cliente seleccionado", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //Se toma la fila seleccionada y se extrae el login en la celda 0
-                    this.EjecutarEliminar(this.dgvTablaClientes.SelectedRows[0].Cells[0].Value.ToString());
+                    this.EjecutarEliminar(int.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[0].Value.ToString()));
 
                     //Se actualiza la lista
                     this.ConsultarPorNombre();
@@ -107,11 +108,11 @@ namespace AppBigFood.Views.Cliente
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void EjecutarEliminar(string pCliente)
+        private void EjecutarEliminar(int pCliente)
         {
             try
             {
-                this.varObjClientes.EliminarCliente(int.Parse(pCliente));
+                this.varObjClientes.EliminarCliente(pCliente);
             }
             catch (Exception ex)
             {
@@ -159,8 +160,8 @@ namespace AppBigFood.Views.Cliente
                 }
 
                 BLL.Cliente cliente = new BLL.Cliente();
-                cliente.cedula = this.dgvTablaClientes.SelectedRows[0].Cells[1].Value.ToString();
-                cliente.NombreCompleto = this.dgvTablaClientes.SelectedRows[0].Cells[3].Value.ToString();
+                cliente.cedulaLegal = this.dgvTablaClientes.SelectedRows[0].Cells[0].Value.ToString();
+                cliente.NombreCompleto = this.dgvTablaClientes.SelectedRows[0].Cells[2].Value.ToString();
 
                 return cliente;
             }
@@ -176,6 +177,7 @@ namespace AppBigFood.Views.Cliente
             try
             {
                 this.MostrarActualizarCliente();
+                this.ConsultarPorNombre();
             }
             catch (Exception ex)
             {

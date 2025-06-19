@@ -48,10 +48,12 @@
     <Compile Include="APIFacturas.cs" />
     <Compile Include="APIProducto.cs" />
     <Compile Include="APIUsuario.cs" />
+    <Compile Include="AutorizacionResponse.cs" />
     <Compile Include="HttpAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

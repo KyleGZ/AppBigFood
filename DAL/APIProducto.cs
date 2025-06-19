@@ -31,7 +31,7 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Utilizamos el método para devolver los productos
-                HttpResponseMessage response = client.GetAsync("api/Productos").Result;
+                HttpResponseMessage response = client.GetAsync("/Productos/List").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -54,7 +54,7 @@ namespace DAL
         /// </summary>
         /// <param name="CodInterno"></param>
         /// <returns></returns>
-        public Producto GetProducto(int? CodInterno)
+        public Producto GetProducto(int CodInterno)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Utilizamos el método get de la api
-                HttpResponseMessage response = client.GetAsync("api/Productos/" + CodInterno).Result;
+                HttpResponseMessage response = client.GetAsync($"/Productos/SearchByCodigoInterno?codigoInterno={CodInterno}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -104,7 +104,7 @@ namespace DAL
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Utilizamos el método POST de la API
-                HttpResponseMessage response = client.PostAsync("api/Productos", content).Result;
+                HttpResponseMessage response = client.PostAsync("/Productos/Save", content).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -126,7 +126,7 @@ namespace DAL
         /// <param name="CodInterno"></param>
         /// <param name="producto"></param>
         /// <returns></returns>
-        public bool ActualizarProducto(int CodInterno, Producto producto)
+        public bool ActualizarProducto(Producto producto)
         {
             try
             {
@@ -134,14 +134,14 @@ namespace DAL
                 _api = new HttpAPI();
 
                 //Consumimos la API
-                HttpClient client = _api.Inicial();
+                HttpClient product = _api.Inicial();
 
                 //Se serealiza el objeto paquete a json
                 var json = JsonConvert.SerializeObject(producto);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Se utiliza el método PUT de la API
-                HttpResponseMessage response = client.PostAsync("api/Productos/" + CodInterno, content).Result;
+                HttpResponseMessage response = product.PutAsync("/Productos/Update", content).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -173,7 +173,7 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Utilizamos el método Delete de la API
-                HttpResponseMessage response = client.DeleteAsync("api/Productos/" + CodInterno).Result;
+                HttpResponseMessage response = client.DeleteAsync($"/Productos/Delete?codigoInterno={CodInterno}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {

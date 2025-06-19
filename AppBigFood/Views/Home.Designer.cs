@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +69,10 @@
             this.Impuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtDisponible = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -96,6 +101,7 @@
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -271,7 +277,6 @@
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
             this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
-            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // toolStripSeparator12
             // 
@@ -280,6 +285,9 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.txtTotalPagar);
             this.panel3.Controls.Add(this.label12);
@@ -289,13 +297,13 @@
             this.panel3.Controls.Add(this.dgvCarrito);
             this.panel3.Location = new System.Drawing.Point(0, 373);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1074, 559);
+            this.panel3.Size = new System.Drawing.Size(1074, 379);
             this.panel3.TabIndex = 6;
             // 
             // txtTotalPagar
             // 
             this.txtTotalPagar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPagar.Location = new System.Drawing.Point(851, 496);
+            this.txtTotalPagar.Location = new System.Drawing.Point(851, 330);
             this.txtTotalPagar.Name = "txtTotalPagar";
             this.txtTotalPagar.Size = new System.Drawing.Size(211, 34);
             this.txtTotalPagar.TabIndex = 22;
@@ -304,7 +312,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(741, 502);
+            this.label12.Location = new System.Drawing.Point(733, 336);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(114, 23);
             this.label12.TabIndex = 21;
@@ -318,7 +326,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = global::AppBigFood.Properties.Resources._4115230_cancel_close_cross_delete_1140481;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(248, 496);
+            this.btnCancelar.Location = new System.Drawing.Point(248, 331);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(207, 34);
             this.btnCancelar.TabIndex = 3;
@@ -334,7 +342,7 @@
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Image = global::AppBigFood.Properties.Resources.creditcard_payment_4578;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(10, 496);
+            this.btnAceptar.Location = new System.Drawing.Point(10, 332);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(207, 34);
             this.btnAceptar.TabIndex = 2;
@@ -354,6 +362,9 @@
             // 
             // dgvCarrito
             // 
+            this.dgvCarrito.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCarrito.BackgroundColor = System.Drawing.Color.White;
             this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -364,11 +375,12 @@
             this.Impuesto,
             this.Descuento,
             this.SubTotal});
+            this.dgvCarrito.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvCarrito.Location = new System.Drawing.Point(10, 59);
             this.dgvCarrito.Name = "dgvCarrito";
             this.dgvCarrito.RowHeadersWidth = 51;
             this.dgvCarrito.RowTemplate.Height = 24;
-            this.dgvCarrito.Size = new System.Drawing.Size(1052, 410);
+            this.dgvCarrito.Size = new System.Drawing.Size(1052, 263);
             this.dgvCarrito.TabIndex = 0;
             // 
             // Codigo
@@ -420,8 +432,36 @@
             this.SubTotal.Name = "SubTotal";
             this.SubTotal.Width = 126;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator13,
+            this.eliminarToolStripMenuItem,
+            this.toolStripSeparator14});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 40);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(129, 6);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(129, 6);
+            // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.txtDisponible);
             this.panel2.Controls.Add(this.label13);
@@ -443,6 +483,7 @@
             // 
             // txtDisponible
             // 
+            this.txtDisponible.Enabled = false;
             this.txtDisponible.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDisponible.Location = new System.Drawing.Point(360, 177);
             this.txtDisponible.Name = "txtDisponible";
@@ -493,6 +534,7 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.Enabled = false;
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(24, 263);
             this.txtPrecio.Name = "txtPrecio";
@@ -528,6 +570,7 @@
             // 
             // txtNombreProducto
             // 
+            this.txtNombreProducto.Enabled = false;
             this.txtNombreProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.Location = new System.Drawing.Point(24, 177);
             this.txtNombreProducto.Name = "txtNombreProducto";
@@ -546,6 +589,7 @@
             // 
             // txtCodigoProducto
             // 
+            this.txtCodigoProducto.Enabled = false;
             this.txtCodigoProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoProducto.Location = new System.Drawing.Point(24, 101);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
@@ -612,8 +656,8 @@
             this.cbCondicion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCondicion.FormattingEnabled = true;
             this.cbCondicion.Items.AddRange(new object[] {
-            "Contado",
-            "Credito"});
+            "A-Contado",
+            "B-Credito"});
             this.cbCondicion.Location = new System.Drawing.Point(275, 263);
             this.cbCondicion.Name = "cbCondicion";
             this.cbCondicion.Size = new System.Drawing.Size(230, 36);
@@ -654,6 +698,7 @@
             // 
             // txtFullName
             // 
+            this.txtFullName.Enabled = false;
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFullName.Location = new System.Drawing.Point(30, 177);
             this.txtFullName.Name = "txtFullName";
@@ -672,6 +717,7 @@
             // 
             // txtCedula
             // 
+            this.txtCedula.Enabled = false;
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula.Location = new System.Drawing.Point(30, 101);
             this.txtCedula.Name = "txtCedula";
@@ -703,7 +749,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1076, 933);
+            this.ClientSize = new System.Drawing.Size(1076, 753);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -713,11 +759,13 @@
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -793,5 +841,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDisponible;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
     }
 }

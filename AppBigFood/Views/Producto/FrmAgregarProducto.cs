@@ -13,12 +13,12 @@ namespace AppBigFood.Views.Producto
 {
     public partial class FrmAgregarProducto : Form
     {
-        private BLL.Producto varObjProducto = null;
-        private APIProducto varObjApiProductos = null;
+        private BLL.Producto producto = null;
+        private APIProducto apiProductos = null;
         public FrmAgregarProducto()
         {
             InitializeComponent();
-            varObjApiProductos = new APIProducto();
+            apiProductos = new APIProducto();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -37,18 +37,22 @@ namespace AppBigFood.Views.Producto
         {
             try
             {
-                this.varObjProducto = new BLL.Producto();
-                this.varObjProducto.CodiInterno = int.Parse(this.txtCodigoInterno.Text.Trim());
-                this.varObjProducto.CodiBarra = this.txtCodigoBarras.Text.Trim();
-                this.varObjProducto.PrecioVenta = double.Parse(this.txtPrecioVenta.Text.Trim());
-                this.varObjProducto.Descuento = double.Parse(this.txtDescuento.Text.Trim());
-                this.varObjProducto.Impuesto = double.Parse(this.txtImpuesto.Text.Trim());
-                this.varObjProducto.UnidadMedida = this.txtUnidadMedida.Text.Trim();
-                this.varObjProducto.PrecioCompra = double.Parse(this.txtPrecioCompra.Text.Trim());
-                this.varObjProducto.Existencia = int.Parse(this.txtExistencias.Text.Trim());
-                this.varObjProducto.Descripcion = this.rtxtDescripcion.Text;
+                producto = new BLL.Producto()
+                {
+                    CodigoInterno = int.Parse(this.txtCodigoInterno.Text.Trim()),
+                    CodigoBarra = this.txtCodigoBarras.Text.Trim(),
+                    PrecioVenta = (decimal)double.Parse(this.txtPrecioVenta.Text.Trim()),
+                    Descuento = (decimal)double.Parse(this.txtDescuento.Text.Trim()),
+                    Impuesto = (decimal)double.Parse(this.txtImpuesto.Text.Trim()),
+                    UnidadMedida = this.txtUnidadMedida.Text.Trim(),
+                    PrecioCompra = (decimal)double.Parse(this.txtPrecioCompra.Text.Trim()),
+                    Existencia = int.Parse(this.txtExistencias.Text.Trim()),
+                    Usuario = int.Parse(this.txtUsuario.Text.Trim()),
+                    Descripcion = this.rtxtDescripcion.Text
+                };
+                
 
-                this.varObjApiProductos.CrearProducto(this.varObjProducto);
+                this.apiProductos.CrearProducto(producto);
                 MessageBox.Show("Producto registrado correctamente", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
 

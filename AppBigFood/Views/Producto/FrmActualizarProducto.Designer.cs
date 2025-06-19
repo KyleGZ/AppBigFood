@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmActualizarProducto));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -64,6 +66,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtUsuario);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnModificar);
@@ -92,6 +96,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 700);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(375, 488);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(273, 34);
+            this.txtUsuario.TabIndex = 48;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(371, 461);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 23);
+            this.label12.TabIndex = 47;
+            this.label12.Text = "Usuario";
             // 
             // panel2
             // 
@@ -127,9 +150,9 @@
             // 
             // rtxtDescripcion
             // 
-            this.rtxtDescripcion.Location = new System.Drawing.Point(375, 499);
+            this.rtxtDescripcion.Location = new System.Drawing.Point(375, 569);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
-            this.rtxtDescripcion.Size = new System.Drawing.Size(273, 128);
+            this.rtxtDescripcion.Size = new System.Drawing.Size(273, 58);
             this.rtxtDescripcion.TabIndex = 20;
             this.rtxtDescripcion.Text = "";
             // 
@@ -137,7 +160,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(371, 462);
+            this.label11.Location = new System.Drawing.Point(371, 542);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 23);
             this.label11.TabIndex = 19;
@@ -362,5 +385,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label label12;
     }
 }

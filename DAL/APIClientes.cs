@@ -31,7 +31,7 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Utilizamos los métodos para devolver los cliente
-                HttpResponseMessage response = client.GetAsync("api/Clientes").Result;
+                HttpResponseMessage response = client.GetAsync("/Clientes/ListaClientes").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -54,7 +54,7 @@ namespace DAL
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Cliente GetCliente(int? ID)
+        public Cliente GetCliente(int ID)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace DAL
                 //Consumimos la API
                 HttpClient client = _api.Inicial();
 
-                HttpResponseMessage response = client.GetAsync("api/Clientes/" + ID).Result;
+                HttpResponseMessage response = client.GetAsync($"/Clientes/BuscarClientePorCedula?cedula={ID}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -102,7 +102,7 @@ namespace DAL
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Utilizamos el método Post del la API
-                HttpResponseMessage response = client.PostAsync("api/Clientes", content).Result;
+                HttpResponseMessage response = client.PostAsync("/Clientes/AgregarCliente", content).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -125,7 +125,7 @@ namespace DAL
         /// <param name="ID"></param>
         /// <param name="cliente"></param>
         /// <returns></returns>
-        public bool ActualizarCliente(int ID, Cliente cliente)
+        public bool ActualizarCliente(Cliente cliente)
         {
             try
             {
@@ -140,7 +140,7 @@ namespace DAL
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Se utiliza el método PUT de la API
-                HttpResponseMessage response = client.PostAsync("api/Clientes/" + ID, content).Result;
+                HttpResponseMessage response = client.PutAsync("/Clientes/EditarCliente", content).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -167,7 +167,7 @@ namespace DAL
                 HttpClient client = _api.Inicial();
 
                 //Utilizamos el método Delete de la API
-                HttpResponseMessage response = client.DeleteAsync("api/Clientes/" + ID).Result;
+                HttpResponseMessage response = client.DeleteAsync($"/Clientes/EliminarCliente?id={ID}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,37 +19,42 @@ namespace AppBigFood.Views
 {
     public partial class Home : Form
     {
-        private APIClientes varObjApiClientes = null;
-        private APIProducto varObjApiProductos = null;
-        private APIUsuario varObjUser = null;
-        private APIFacturas varObjFactura = null;
+        public static string token = null;
+        private APIClientes apiClientes = null;
+        private APIProducto apiProductos = null;
+        private APIUsuario user = null;
+        private APIFacturas factura = null;
+        private Email email = null;
 
-        private double impuesto;
-        private double descuento;
-        private double total;
+        private decimal impuesto;
+        private decimal descuento;
+        private decimal total;
 
         public Home()
         {
             InitializeComponent();
-            this.varObjUser = new APIUsuario();
-            this.varObjFactura = new APIFacturas();
+            this.user = new APIUsuario();
+            this.factura = new APIFacturas();
+            this.apiClientes = new APIClientes();
+            this.apiProductos = new APIProducto();
+            this.email = new Email();
             this.total = 0;
         }
 
-        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.varObjUser.Logout();
-                this.MostrarLogin();
+        //private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        //this.varObjUser.Logout();
+        //        this.MostrarLogin();
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void informacionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -73,15 +79,7 @@ namespace AppBigFood.Views
 
         private void Home_Load(object sender, EventArgs e)
         {
-            try
-            {
-                this.MostrarLogin();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.MostrarLogin();
         }
 
         //Método para mostrar login
@@ -107,7 +105,7 @@ namespace AppBigFood.Views
                 FrmTablaClientes frm = new FrmTablaClientes();
                 frm.ShowDialog();
 
-                this.txtCedula.Text = frm.PasarClientes().cedula;
+                this.txtCedula.Text = frm.PasarClientes().cedulaLegal;
                 this.txtFullName.Text = frm.PasarClientes().NombreCompleto;
                 frm.Dispose();
             }
@@ -123,13 +121,12 @@ namespace AppBigFood.Views
             FrmTablaProductos frm = new FrmTablaProductos();
             frm.ShowDialog();
 
-            this.txtCodigoProducto.Text = frm.PasarProductos().CodiInterno.ToString();
+            this.txtCodigoProducto.Text = frm.PasarProductos().CodigoInterno.ToString();
             this.txtNombreProducto.Text = frm.PasarProductos().Descripcion;
             this.txtPrecio.Text = frm.PasarProductos().PrecioVenta.ToString();
-            this.txtCantidad.Text = frm.PasarProductos().Existencia.ToString();
-
-            this.impuesto = frm.PasarProductos().Impuesto;
-            this.descuento = frm.PasarProductos().Descuento;
+            this.txtDisponible.Text = frm.PasarProductos().Existencia.ToString();
+            this.impuesto = (decimal)frm.PasarProductos().Impuesto;
+            this.descuento = (decimal)frm.PasarProductos().Descuento;
             frm.Dispose();
         }
 
@@ -218,12 +215,12 @@ namespace AppBigFood.Views
         {
             try
             {
-                var subtotal = double.Parse(this.txtPrecio.Text.ToString()) * int.Parse(this.txtCantidad.Text);
-                total = total + ((double.Parse(this.txtPrecio.Text.ToString()) * 
-                    int.Parse(this.txtCantidad.Text)) + 
-                    (double.Parse(this.txtPrecio.Text.ToString()) * impuesto / 100)) - 
-                    (double.Parse(this.txtPrecio.Text.ToString()) * (descuento / 100));
-
+                int precio = int.Parse(this.txtPrecio.Text.Trim());
+                int cantidad = int.Parse(this.txtCantidad.Text.Trim());
+                decimal montoDescuento = precio * (descuento / 100);
+                decimal montoImpuesto = precio * (impuesto / 100);        
+                var subtotal =  ((precio + montoImpuesto) - montoDescuento) * cantidad;
+                total = total+subtotal;
                 this.dgvCarrito.Rows.Add(this.txtCodigoProducto.Text, 
                     this.txtNombreProducto.Text, this.txtPrecio.Text, this.txtCantidad.Text, 
                     this.impuesto, this.descuento, subtotal);
@@ -288,30 +285,80 @@ namespace AppBigFood.Views
         {
             try
             {
-                Compra compra = new Compra();
-                compra.ClienteId = int.Parse(txtCedula.Text);
-                compra.TipoPa = cbTipoPago.SelectedItem.ToString();
-                compra.Condicion = cbCondicion.SelectedItem.ToString();
-                compra.Fecha = DateTime.Now;
-
-                this.varObjFactura.CrearFactura(compra);
-
+                decimal precio = decimal.Parse(this.dgvCarrito.Rows[0].Cells[2].Value.ToString());
+                int cantidad = int.Parse(this.dgvCarrito.Rows[0].Cells[3].Value.ToString());
+                decimal montoDescuento = precio * (descuento / 100);
+                decimal montoImpuesto = precio * (impuesto / 100);
+                var subtotal = ((precio + montoImpuesto) - montoDescuento) * cantidad;
+                total = total + subtotal;
+                int numeroFactura = this.factura.GetFacturas().Count()+1;
+                var temp = this.apiClientes.GetCliente(int.Parse(this.txtCedula.Text.Trim()));
+                Factura factura = new Factura()
+                {
+                    numero = numeroFactura,
+                    Fecha = DateTime.Now,
+                    codCliente = this.txtCedula.Text.Trim(),
+                    SubTotal = subtotal,
+                    MontoDescuento = montoDescuento,
+                    MontoImpuesto = montoImpuesto,
+                    Total = decimal.Parse(this.txtTotalPagar.Text.Trim()),
+                    estado = temp.estado,
+                    Usuario = temp.Usuario,
+                    TipoPago = this.cbTipoPago.Text.Substring(0,1),
+                    Condicion = this.cbCondicion.Text.Substring(0,1),
+                };
+                this.factura.CrearFactura(factura);
+                //if (this.cbCondicion.Text.Substring(0,1)=="B")
+                //{
+                //    Bitacora bitacora = new Bitacora()
+                //    {
+                //        Tabla = "Bitacora",
+                //        Usuario = temp.Usuario,
+                //        Maquina = "Home",
+                //        Fecha = DateTime.Now,
+                //        TipoMov = "Compra",
+                //        Registro = temp.NombreCompleto
+                //    };
+                //    this.factura.CrearBitacora(bitacora);
+                //}
+                var producto = this.apiProductos.GetProducto(int.Parse(this.dgvCarrito.Rows[0].Cells[0].Value.ToString()));
+                //BLL.Producto product = new BLL.Producto()
+                //{
+                //    CodigoInterno = int.Parse(this.txtCodigoProducto.Text.Trim()),
+                //    CodigoBarra = producto.CodigoBarra,
+                //    Descripcion = producto.Descripcion,
+                //    PrecioVenta = (decimal)double.Parse(this.txtPrecio.Text.Trim()),
+                //    Descuento = producto.Descuento,
+                //    Impuesto = producto.Impuesto,
+                //    UnidadMedida = producto.UnidadMedida,
+                //    PrecioCompra = producto.PrecioCompra,
+                //    Usuario = producto.Usuario,
+                //    Existencia = producto.Existencia-int.Parse(this.txtCantidad.Text.Trim())
+                //};
+                //this.apiProductos.ActualizarProducto(product);
+                this.email.GenerarPDF(factura,temp,producto);
+                this.email.Enviar(factura, temp, producto);
                 // Crear una lista para almacenar las filas que se eliminarán
                 List<DataGridViewRow> filasEliminar = new List<DataGridViewRow>();
-                DetalleCompra detCompra = new DetalleCompra();
+                DetalleFactura detalle = new DetalleFactura();
 
                 // Recorrer las filas del DataGridView
-                for (int i = 0; i < dgvCarrito.Rows.Count; i++)
+                for (int i = 0; i < dgvCarrito.Rows.Count-1; i++)
                 {
                     DataGridViewRow fila = dgvCarrito.Rows[i];
 
                     // Obtener los datos de la fila
-                    detCompra.CodInterno = int.Parse(fila.Cells[0].Value.ToString());
-                    detCompra.Cantidad = (int.Parse(fila.Cells[3].Value.ToString()));
+                    detalle.numFactura = numeroFactura;
+                    detalle.codInterno = int.Parse(fila.Cells[0].Value.ToString());
+                    detalle.cantidad = (int.Parse(fila.Cells[3].Value.ToString()));
+                    detalle.PrecioUnitario = (int.Parse(fila.Cells[2].Value.ToString()));
+                    detalle.Subtotal = subtotal;
+                    detalle.PorImp = (int.Parse(fila.Cells[4].Value.ToString()));
+                    detalle.PorDescuento = (int.Parse(fila.Cells[5].Value.ToString()));
 
                     // Agregar la fila a la lista de filas a eliminar
                     filasEliminar.Add(fila);
-                    this.varObjFactura.CrearFacturaDetalle(detCompra);
+                    this.factura.CrearFacturaDetalle(detalle);
                 }
 
                 // Eliminar las filas de la lista
@@ -332,6 +379,7 @@ namespace AppBigFood.Views
             try
             {
                 this.CancelarCompra();
+                //this.ActualizarTotal();
             }
             catch (Exception ex)
             {
@@ -371,5 +419,47 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
+
+        //private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvCarrito.SelectedRows.Count > 0)
+        //    {
+        //        // Confirmación opcional
+        //        DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar esta fila?",
+        //                                              "Confirmar eliminación",
+        //                                              MessageBoxButtons.YesNo,
+        //                                              MessageBoxIcon.Warning);
+
+        //        if (result == DialogResult.Yes)
+        //        {
+        //            // Elimina la fila seleccionada
+        //            dgvCarrito.Rows.RemoveAt(dgvCarrito.SelectedRows[0].Index);
+        //            this.ActualizarTotal();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Seleccione una fila para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+
+        //}
+        //private void ActualizarTotal()
+        //{
+        //    decimal total = 0;
+
+        //    foreach (DataGridViewRow fila in dgvCarrito.Rows)
+        //    {
+        //        if (fila.Cells["SubTotal"].Value != null)
+        //        {
+        //            decimal precio;
+        //            if (decimal.TryParse(fila.Cells["subTotal"].Value.ToString(), out precio))
+        //            {
+        //                total += precio;
+        //            }
+        //        }
+        //    }
+
+        //    txtTotalPagar.Text = total.ToString("");
+        //}
     }//
 }//

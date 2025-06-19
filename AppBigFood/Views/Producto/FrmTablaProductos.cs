@@ -36,19 +36,19 @@ namespace AppBigFood.Views.Producto
             }
         }
 
-        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.PasarProductos();
-                this.Close();
+        //private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.PasarProductos();
+        //        this.Close();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
         public BLL.Producto PasarProductos()
         {
             try
@@ -60,12 +60,12 @@ namespace AppBigFood.Views.Producto
                 }
 
                 BLL.Producto producto = new BLL.Producto();
-                producto.CodiInterno = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[0].Value.ToString());
+                producto.CodigoInterno = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[0].Value.ToString());
                 producto.Descripcion = this.dgvTablaProductos.SelectedRows[0].Cells[2].Value.ToString();
-                producto.PrecioVenta = double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[3].Value.ToString());
-                producto.Existencia = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[8].Value.ToString());
-                producto.Descuento = double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[4].Value.ToString());
-                producto.Impuesto = double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[5].Value.ToString());
+                producto.PrecioVenta = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[3].Value.ToString());
+                producto.Existencia = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[9].Value.ToString());
+                producto.Descuento = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[4].Value.ToString());
+                producto.Impuesto = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[5].Value.ToString());
 
                 return producto;
             }
@@ -119,6 +119,7 @@ namespace AppBigFood.Views.Producto
             try
             {
                 this.MostrarActualizarProducto();
+                this.ConsultarPorNombre();
             }
             catch (Exception ex)
             {
@@ -136,14 +137,15 @@ namespace AppBigFood.Views.Producto
                 BLL.Producto temp = new BLL.Producto();
 
                 //Se rellenan los campos del objeto con la fila seleccionada
-                temp.CodiInterno = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[0].Value.ToString());
-                temp.CodiBarra = this.dgvTablaProductos.SelectedRows[0].Cells[1].Value.ToString();
-                temp.PrecioVenta = double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[3].Value.ToString());
-                temp.Descuento = double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[4].Value.ToString());
-                temp.Impuesto = double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[5].Value.ToString());
+                temp.CodigoInterno = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[0].Value.ToString());
+                temp.CodigoBarra = this.dgvTablaProductos.SelectedRows[0].Cells[1].Value.ToString();
+                temp.PrecioVenta = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[3].Value.ToString());
+                temp.Descuento = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[4].Value.ToString());
+                temp.Impuesto = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[5].Value.ToString());
                 temp.UnidadMedida = this.dgvTablaProductos.SelectedRows[0].Cells[6].Value.ToString();
-                temp.PrecioCompra = double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[7].Value.ToString());
-                temp.Existencia = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[8].Value.ToString());
+                temp.PrecioCompra = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[7].Value.ToString());
+                temp.Usuario = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[8].Value.ToString());
+                temp.Existencia = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[9].Value.ToString());
                 temp.Descripcion = this.dgvTablaProductos.SelectedRows[0].Cells[2].Value.ToString();
 
                 //Se pasa el objeto al formulario
@@ -185,6 +187,12 @@ namespace AppBigFood.Views.Producto
 
                 throw ex;
             }
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.PasarProductos();
+            this.Close();
         }
     }//
 }//

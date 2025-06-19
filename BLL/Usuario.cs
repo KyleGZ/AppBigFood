@@ -7,20 +7,16 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Cliente
+    public class Usuario
     {
-        public string cedulaLegal { get; set; }
+        public int Id { get; set; }
 
-        public string tipoCedula { get; set; }
+        public string login { get; set; }
 
-        public string NombreCompleto { get; set; }
-
-        public string Email { get; set; }
+        public string password { get; set; }
 
         public DateTime fechaRegistro { get; set; }
 
         public char estado { get; set; }
-
-        public int Usuario { get; set; }
     }
 }
