@@ -37,47 +37,48 @@ namespace AppBigFood.Views.Usuario
             }
         }
 
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.MostrarActualizarUsuario();
-                this.ConsultarPorNombre();
-            }
-            catch (Exception ex)
-            {
+        //private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.MostrarActualizarUsuario();
+        //        this.ConsultarPorNombre();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void MostrarActualizarUsuario()
-        {
-            try
-            {
-                FrmActualizarUsuario frm = new FrmActualizarUsuario();
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
-                //Se crea la instancia el objeto
-                BLL.Usuario temp = new BLL.Usuario();
+        //private void MostrarActualizarUsuario()
+        //{
+        //    try
+        //    {
+        //        FrmActualizarUsuario frm = new FrmActualizarUsuario();
 
-                //Se rellenan los campos del objeto con la fila seleccionada
-                temp.Id = int.Parse(this.dgvTablaUsuario.SelectedRows[0].Cells[0].Value.ToString());
-                temp.login = this.dgvTablaUsuario.SelectedRows[0].Cells[1].Value.ToString();
-                temp.password = this.dgvTablaUsuario.SelectedRows[0].Cells[2].Value.ToString();
-                temp.estado = char.Parse(this.dgvTablaUsuario.SelectedRows[0].Cells[4].Value.ToString());
+        //        //Se crea la instancia el objeto
+        //        BLL.Usuario temp = new BLL.Usuario();
 
-                //Se pasa el objeto al formulario
-                frm.PasarDatos(temp);
+        //        //Se rellenan los campos del objeto con la fila seleccionada
+        //        temp.Id = int.Parse(this.dgvTablaUsuario.SelectedRows[0].Cells[0].Value.ToString());
+        //        temp.login = this.dgvTablaUsuario.SelectedRows[0].Cells[1].Value.ToString();
+        //        temp.password = this.dgvTablaUsuario.SelectedRows[0].Cells[2].Value.ToString();
+        //        temp.estado = char.Parse(this.dgvTablaUsuario.SelectedRows[0].Cells[4].Value.ToString());
 
-                frm.ShowDialog();
-                frm.Dispose();
+        //        //Se pasa el objeto al formulario
+        //        frm.PasarDatos(temp);
 
-            }
-            catch (Exception ex)
-            {
+        //        frm.ShowDialog();
+        //        frm.Dispose();
 
-                throw ex;
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+        //}
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {

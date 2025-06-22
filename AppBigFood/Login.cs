@@ -41,7 +41,7 @@ namespace AppBigFood
         {
             try
             {
-                this.Auntenticarse();
+                this.Autenticarse();
             }
             catch (Exception ex)
             {
@@ -49,32 +49,63 @@ namespace AppBigFood
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private async void Auntenticarse()
+        //private async void Auntenticarse()
+        //{
+        //    try
+        //    {
+        //        this.user = new Usuario();
+        //        this.user.login = this.txtUsuario.Text.Trim();
+        //        this.user.password = this.txtPassword.Text.Trim();
+
+        //        AutorizacionResponse autorizacionResponse =
+        //        await this._apiUsuario.Login(this.user);
+        //        if (autorizacionResponse != null)
+        //        {
+        //            Home.token = autorizacionResponse.Token;
+        //            this.Close();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Email o password incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+        //}
+
+        private async void Autenticarse()
         {
             try
             {
-                this.user = new Usuario();
-                this.user.login = this.txtUsuario.Text.Trim();
-                this.user.password = this.txtPassword.Text.Trim();
+                // Crear usuario con los nombres de propiedad correctos
+                var usuario = new Usuario
+                {
+                    NombreUsuario = this.txtUsuario.Text.Trim(),
+                    Contrasena = this.txtPassword.Text.Trim()
+                };
 
-                AutorizacionResponse autorizacionResponse =
-                await this._apiUsuario.Login(this.user);
-                if (autorizacionResponse != null)
+                // Llamar al método de login de tu API (debes adaptar _apiUsuario.Login a aceptar el nuevo modelo)
+                AutorizacionResponse autorizacionResponse = await this._apiUsuario.Login(usuario);
+
+                if (autorizacionResponse != null && !string.IsNullOrEmpty(autorizacionResponse.Token))
                 {
                     Home.token = autorizacionResponse.Token;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Email o password incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {

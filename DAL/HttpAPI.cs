@@ -22,7 +22,7 @@ namespace DAL
         {
             var client = new HttpClient();
 
-            client.BaseAddress = new Uri("http://www.ApiSecurity.somee.com");
+            client.BaseAddress = new Uri("https://localhost:7157/");
 
             return client;
         }

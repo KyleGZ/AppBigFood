@@ -125,7 +125,7 @@
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
             this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
+            //this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 

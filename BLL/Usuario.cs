@@ -9,14 +9,12 @@ namespace BLL
 {
     public class Usuario
     {
-        public int Id { get; set; }
+        public int IdUsuario { get; set; }                // Cambia el nombre a coincidir con la tabla
 
-        public string login { get; set; }
+        public string NombreUsuario { get; set; }         // nombreUsuario VARCHAR2(100) NOT NULL
 
-        public string password { get; set; }
+        public string Contrasena { get; set; }            // contrasena VARCHAR2(255) NOT NULL
 
-        public DateTime fechaRegistro { get; set; }
-
-        public char estado { get; set; }
+        public string Estado { get; set; }                // estado VARCHAR2(20) DEFAULT 'Activo'
     }
 }
