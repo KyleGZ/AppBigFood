@@ -155,6 +155,34 @@ namespace DAL
             return false;
 
         }//Fin del método crear cliente
+        public DetalleFactura GetDetFactura(int numero)
+        {
+            try
+            {
+                //Creamos la instancia de la API
+                _api = new HttpAPI();
+
+                //Consumimos la API
+                HttpClient client = _api.Inicial();
+
+                HttpResponseMessage response = client.GetAsync($"/DetalleFacturas/Search?numFactura={numero}").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Leemos los datos que se obtienen del objeto JSON
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Convertimos el objeto JSON al objeto modelo
+                    return JsonConvert.DeserializeObject<DetalleFactura>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
+        }
+
 
         public List<CuentasXCobrar> CuentasPorCobrar()
         {
@@ -184,6 +212,37 @@ namespace DAL
                 throw ex;
             }
             return null;
+
+        }//Fin del método crear cliente
+        public bool CrearCuentasXCobarar(CuentasXCobrar cuentas)
+        {
+            try
+            {
+                //Hacemos la instancia de la API
+                _api = new HttpAPI();
+
+                //Consumimos la Api
+                HttpClient client = _api.Inicial();
+
+                //Se serealiza el objeto paquete a json
+                var json = JsonConvert.SerializeObject(cuentas);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                //Utilizamos el método Post del la API
+                HttpResponseMessage response = client.PostAsync("/CuentasPorCobrar/Save", content).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //La edición del cliente se realizó correctamente
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Capturamos la excepción, pero no se realiza ninguna acción
+                throw ex;
+            }
+            return false;
 
         }//Fin del método crear cliente
 

@@ -82,7 +82,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(440, 650);
             this.panel1.TabIndex = 15;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtUsuario
             // 
@@ -187,6 +186,7 @@
             // 
             // txtFullName
             // 
+            this.txtFullName.Enabled = false;
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFullName.Location = new System.Drawing.Point(35, 375);
             this.txtFullName.Name = "txtFullName";

@@ -27,18 +27,18 @@ namespace AppBigFood.Views.Cliente
             try
             {
                 this.txtCedula.Text = pTemp.cedulaLegal;
-                switch (char.Parse(pTemp.tipoCedula))
-                {
-                    case 'N':
-                        this.cbTipoCedula.SelectedIndex=0;
-                        break;
-                    case 'E':
-                        this.cbTipoCedula.SelectedIndex = 1;
-                        break;
-                } 
+                this.cbTipoCedula.Text = pTemp.tipoCedula;
                 this.txtFullName.Text = pTemp.NombreCompleto;
                 this.txtEmail.Text = pTemp.Email;
-                //this.cbEstado.Items.Add(pTemp.estado);
+                switch (pTemp.estado)
+                {
+                    case 'A':
+                        this.cbEstado.SelectedIndex = 0;
+                        break;
+                    case 'I':
+                        this.cbEstado.SelectedIndex = 1;
+                        break;
+                }
                 this.txtUsuario.Text = pTemp.Usuario.ToString();
             }
             catch (Exception ex)
@@ -67,16 +67,14 @@ namespace AppBigFood.Views.Cliente
                 cliente = new BLL.Cliente()
                 {
                     cedulaLegal = this.txtCedula.Text.Trim(),
-                    tipoCedula = this.cbTipoCedula.Text.Substring(0, 1),
+                    tipoCedula = this.cbTipoCedula.SelectedItem.ToString(),
                     NombreCompleto = this.txtFullName.Text.Trim(),
                     Email = this.txtEmail.Text.Trim(),
                     fechaRegistro = DateTime.Now,
                     estado = char.Parse(this.cbEstado.Text.Substring(0, 1)),
                     Usuario = int.Parse(txtUsuario.Text.Trim())
                 };
-
                 this.apiCliente.ActualizarCliente(cliente);
-
                 MessageBox.Show("Cliente modificado correctamente", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
 
@@ -87,19 +85,5 @@ namespace AppBigFood.Views.Cliente
                 throw ex;
             }
         }
-
-        //private void btnBuscar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        cliente = this.apiCliente.GetCliente(int.Parse(this.txtCedula.Text.Trim()));
-        //        PasarDatos(cliente);
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show(ex.Message, "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
     }//
 }//

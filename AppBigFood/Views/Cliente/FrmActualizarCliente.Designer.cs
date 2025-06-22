@@ -159,6 +159,7 @@
             // 
             // txtFullName
             // 
+            this.txtFullName.Enabled = false;
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFullName.Location = new System.Drawing.Point(35, 386);
             this.txtFullName.Name = "txtFullName";

@@ -14,10 +14,10 @@ namespace BLL
 {
     public class Email
     {
-        public void Enviar(Factura factura, Cliente cliente, Producto producto)
+        public void Enviar(Factura factura, Cliente cliente, Producto producto, List<DetalleFactura> listaDetalle)
         {
             // Generar el archivo PDF
-            byte[] pdfBytes = GenerarPDF(factura,cliente, producto);
+            byte[] pdfBytes = GenerarPDF(factura,cliente, producto, listaDetalle);
 
             // Crear el objeto MemoryStream para almacenar el archivo PDF
             MemoryStream pdfStream = new MemoryStream(pdfBytes);
@@ -67,7 +67,7 @@ namespace BLL
             smtp.Dispose();
         }
 
-        public byte[] GenerarPDF(Factura factura, Cliente cliente, Producto producto)
+        public byte[] GenerarPDF(Factura factura, Cliente cliente, Producto producto, List<DetalleFactura> listaDetalle)
         {
             // Crear el documento
             Document document = new Document();
@@ -94,20 +94,21 @@ namespace BLL
             document.Add(new Paragraph("-----------------------------------------------"));
             decimal montoDescuento = Math.Round(factura.MontoDescuento, 2);
             decimal MontoImpuesto = Math.Round(factura.MontoImpuesto, 2);
-            document.Add(new Paragraph("\nDATOS DE la compra:"));
+            document.Add(new Paragraph("\nDatos de la compra:"));
             document.Add(new Paragraph("Tipo de documento: Factura de la compra"));
             document.Add(new Paragraph("Factura: " + factura.numero));
             document.Add(new Paragraph("Fecha de compra: " + factura.Fecha.ToString("dd/MM/yyyy")));
             document.Add(new Paragraph("-----------------------------------------------"));
 
 
-            List<DetalleFactura> detallesFactura = new List<DetalleFactura>();
+            //List<DetalleFactura> detallesFactura = new List<DetalleFactura>();
+
 
             // Detalle de los productos adquiridos
             document.Add(new Paragraph("\nDetalle factura"));
 
             // Agregar los datos de los detalles de factura al documento
-            foreach (DetalleFactura detalle in detallesFactura)
+            foreach (DetalleFactura detalle in listaDetalle)
             {
                 // Agregar el texto al documento
                 document.Add(new Paragraph("Codigo Interno: " + detalle.codInterno));

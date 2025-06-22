@@ -34,6 +34,7 @@ namespace AppBigFood
             _client = new HttpAPI();
             _api = _client.Seguridad();
             _apiUsuario = new APIUsuario();
+            
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
@@ -78,6 +79,28 @@ namespace AppBigFood
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+        private bool visible = false;
+        private void btnShowPass_Click(object sender, EventArgs e)
+        {
+            
+            if (visible)
+            {
+                this.txtPassword.PasswordChar = '*';
+            }
+            else
+            {
+                this.txtPassword.PasswordChar = '\0';
+            }
+            visible = !visible;
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Home.token == null)
+            {
+                Application.Exit();
+            }
         }
     }
 }

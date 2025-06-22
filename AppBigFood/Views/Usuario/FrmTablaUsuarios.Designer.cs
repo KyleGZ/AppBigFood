@@ -1,6 +1,6 @@
-﻿namespace AppBigFood.Views.Cliente
+﻿namespace AppBigFood.Views.Usuario
 {
-    partial class FrmTablaClientes
+    partial class FrmTablaUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTablaClientes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTablaUsuarios));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
-            this.dgvTablaClientes = new System.Windows.Forms.DataGridView();
+            this.dgvTablaUsuario = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaUsuario)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,12 +52,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnNew);
-            this.panel1.Controls.Add(this.dgvTablaClientes);
+            this.panel1.Controls.Add(this.dgvTablaUsuario);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(11, 11);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(740, 460);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
             // btnNew
             // 
@@ -75,53 +73,40 @@
             this.btnNew.TabIndex = 2;
             this.btnNew.Text = "    Nuevo";
             this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click_1);
             // 
-            // dgvTablaClientes
+            // dgvTablaUsuario
             // 
-            this.dgvTablaClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvTablaUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTablaClientes.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTablaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTablaClientes.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvTablaClientes.Location = new System.Drawing.Point(26, 64);
-            this.dgvTablaClientes.Name = "dgvTablaClientes";
-            this.dgvTablaClientes.RowHeadersWidth = 51;
-            this.dgvTablaClientes.RowTemplate.Height = 24;
-            this.dgvTablaClientes.Size = new System.Drawing.Size(690, 380);
-            this.dgvTablaClientes.TabIndex = 1;
+            this.dgvTablaUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTablaUsuario.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTablaUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTablaUsuario.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvTablaUsuario.Location = new System.Drawing.Point(26, 64);
+            this.dgvTablaUsuario.Name = "dgvTablaUsuario";
+            this.dgvTablaUsuario.RowHeadersWidth = 51;
+            this.dgvTablaUsuario.RowTemplate.Height = 24;
+            this.dgvTablaUsuario.Size = new System.Drawing.Size(690, 380);
+            this.dgvTablaUsuario.TabIndex = 1;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.modificarToolStripMenuItem,
-            this.toolStripSeparator2,
             this.eliminarToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.agregarToolStripMenuItem,
-            this.toolStripSeparator4});
+            this.toolStripSeparator2,
+            this.modificarToolStripMenuItem,
+            this.toolStripSeparator3});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 70);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.modificarToolStripMenuItem.Text = "Agregar";
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
             // 
             // eliminarToolStripMenuItem
             // 
@@ -130,22 +115,22 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.modificarToolStripMenuItem.Text = "Modificar";
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(139, 6);
-            // 
-            // agregarToolStripMenuItem
-            // 
-            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.agregarToolStripMenuItem.Text = "Modificar";
-            this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(139, 6);
             // 
             // label1
             // 
@@ -153,24 +138,23 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 31);
+            this.label1.Size = new System.Drawing.Size(165, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tabla Clientes";
+            this.label1.Text = "Tabla Usuarios";
             // 
-            // FrmTablaClientes
+            // FrmTablaUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(762, 483);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmTablaClientes";
+            this.Name = "FrmTablaUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tabla Clientes";
+            this.Text = "Tabla Usuarios";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaUsuario)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -179,16 +163,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvTablaClientes;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.DataGridView dgvTablaUsuario;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }

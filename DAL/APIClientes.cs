@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //Aquí importamos las bibliotecas
 using Newtonsoft.Json;
 using BLL;
+using System.Net.Http.Headers;
 
 namespace DAL
 {
@@ -29,6 +30,7 @@ namespace DAL
 
                 //Consumimos la API
                 HttpClient client = _api.Inicial();
+
 
                 //Utilizamos los métodos para devolver los cliente
                 HttpResponseMessage response = client.GetAsync("/Clientes/ListaClientes").Result;
@@ -182,5 +184,5 @@ namespace DAL
             }
             return false;
         }
-    }
-}
+    }//
+}//

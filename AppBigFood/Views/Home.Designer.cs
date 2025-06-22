@@ -98,6 +98,7 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtTotalDolares = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
@@ -134,19 +135,19 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(222, 6);
             // 
             // informacionDeClientesToolStripMenuItem
             // 
             this.informacionDeClientesToolStripMenuItem.Name = "informacionDeClientesToolStripMenuItem";
-            this.informacionDeClientesToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
-            this.informacionDeClientesToolStripMenuItem.Text = "Informacion de Clientes";
+            this.informacionDeClientesToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.informacionDeClientesToolStripMenuItem.Text = "Administrar Clientes";
             this.informacionDeClientesToolStripMenuItem.Click += new System.EventHandler(this.informacionDeClientesToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(222, 6);
             // 
             // productosToolStripMenuItem
             // 
@@ -161,19 +162,19 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(261, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(237, 6);
             // 
             // informacionDeProductosToolStripMenuItem
             // 
             this.informacionDeProductosToolStripMenuItem.Name = "informacionDeProductosToolStripMenuItem";
-            this.informacionDeProductosToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
-            this.informacionDeProductosToolStripMenuItem.Text = "Informacion de productos";
+            this.informacionDeProductosToolStripMenuItem.Size = new System.Drawing.Size(240, 26);
+            this.informacionDeProductosToolStripMenuItem.Text = "Administrar productos";
             this.informacionDeProductosToolStripMenuItem.Click += new System.EventHandler(this.informacionDeProductosToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(261, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(237, 6);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -188,19 +189,19 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(197, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(226, 6);
             // 
             // agregarUsuarioToolStripMenuItem
             // 
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
-            this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.agregarUsuarioToolStripMenuItem.Text = "Administrar Usuarios";
             this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(197, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(226, 6);
             // 
             // auditoriaToolStripMenuItem
             // 
@@ -270,18 +271,19 @@
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(118, 6);
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
-            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.cerrarSesionToolStripMenuItem.Text = "Salir";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(118, 6);
             // 
             // panel3
             // 
@@ -289,6 +291,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.txtTotalDolares);
             this.panel3.Controls.Add(this.txtTotalPagar);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.btnCancelar);
@@ -297,13 +300,13 @@
             this.panel3.Controls.Add(this.dgvCarrito);
             this.panel3.Location = new System.Drawing.Point(0, 373);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1074, 379);
+            this.panel3.Size = new System.Drawing.Size(1074, 409);
             this.panel3.TabIndex = 6;
             // 
             // txtTotalPagar
             // 
             this.txtTotalPagar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPagar.Location = new System.Drawing.Point(851, 330);
+            this.txtTotalPagar.Location = new System.Drawing.Point(851, 328);
             this.txtTotalPagar.Name = "txtTotalPagar";
             this.txtTotalPagar.Size = new System.Drawing.Size(211, 34);
             this.txtTotalPagar.TabIndex = 22;
@@ -312,7 +315,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(733, 336);
+            this.label12.Location = new System.Drawing.Point(730, 334);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(114, 23);
             this.label12.TabIndex = 21;
@@ -326,7 +329,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = global::AppBigFood.Properties.Resources._4115230_cancel_close_cross_delete_1140481;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(248, 331);
+            this.btnCancelar.Location = new System.Drawing.Point(226, 368);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(207, 34);
             this.btnCancelar.TabIndex = 3;
@@ -342,7 +345,7 @@
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Image = global::AppBigFood.Properties.Resources.creditcard_payment_4578;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(10, 332);
+            this.btnAceptar.Location = new System.Drawing.Point(10, 368);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(207, 34);
             this.btnAceptar.TabIndex = 2;
@@ -365,6 +368,7 @@
             this.dgvCarrito.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCarrito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarrito.BackgroundColor = System.Drawing.Color.White;
             this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -388,49 +392,42 @@
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 125;
             // 
             // Descripcion
             // 
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.MinimumWidth = 6;
             this.Descripcion.Name = "Descripcion";
-            this.Descripcion.Width = 223;
             // 
             // PrecioUnitario
             // 
             this.PrecioUnitario.HeaderText = "Precio Unitario";
             this.PrecioUnitario.MinimumWidth = 6;
             this.PrecioUnitario.Name = "PrecioUnitario";
-            this.PrecioUnitario.Width = 150;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 125;
             // 
             // Impuesto
             // 
             this.Impuesto.HeaderText = "Impuesto";
             this.Impuesto.MinimumWidth = 6;
             this.Impuesto.Name = "Impuesto";
-            this.Impuesto.Width = 125;
             // 
             // Descuento
             // 
             this.Descuento.HeaderText = "Descuento";
             this.Descuento.MinimumWidth = 6;
             this.Descuento.Name = "Descuento";
-            this.Descuento.Width = 125;
             // 
             // SubTotal
             // 
             this.SubTotal.HeaderText = "SubTotal";
             this.SubTotal.MinimumWidth = 6;
             this.SubTotal.Name = "SubTotal";
-            this.SubTotal.Width = 126;
             // 
             // contextMenuStrip1
             // 
@@ -452,6 +449,7 @@
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // toolStripSeparator14
             // 
@@ -656,8 +654,8 @@
             this.cbCondicion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCondicion.FormattingEnabled = true;
             this.cbCondicion.Items.AddRange(new object[] {
-            "A-Contado",
-            "B-Credito"});
+            "Contado",
+            "Credito"});
             this.cbCondicion.Location = new System.Drawing.Point(275, 263);
             this.cbCondicion.Name = "cbCondicion";
             this.cbCondicion.Size = new System.Drawing.Size(230, 36);
@@ -744,12 +742,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Informacion del cliente";
             // 
+            // txtTotalDolares
+            // 
+            this.txtTotalDolares.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalDolares.Location = new System.Drawing.Point(851, 368);
+            this.txtTotalDolares.Name = "txtTotalDolares";
+            this.txtTotalDolares.Size = new System.Drawing.Size(211, 34);
+            this.txtTotalDolares.TabIndex = 23;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1076, 753);
+            this.ClientSize = new System.Drawing.Size(1076, 783);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -845,5 +851,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.TextBox txtTotalDolares;
     }
 }

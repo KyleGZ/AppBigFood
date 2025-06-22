@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgregarProducto));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,8 +55,6 @@
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,24 @@
             this.panel1.Size = new System.Drawing.Size(680, 700);
             this.panel1.TabIndex = 0;
             // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(361, 403);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(273, 34);
+            this.txtUsuario.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(357, 376);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 23);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Usuario";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -124,7 +142,7 @@
             this.txtCodigoInterno.Location = new System.Drawing.Point(40, 241);
             this.txtCodigoInterno.Name = "txtCodigoInterno";
             this.txtCodigoInterno.Size = new System.Drawing.Size(273, 34);
-            this.txtCodigoInterno.TabIndex = 41;
+            this.txtCodigoInterno.TabIndex = 0;
             // 
             // label1
             // 
@@ -157,7 +175,7 @@
             this.rtxtDescripcion.Location = new System.Drawing.Point(361, 479);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
             this.rtxtDescripcion.Size = new System.Drawing.Size(273, 138);
-            this.rtxtDescripcion.TabIndex = 38;
+            this.rtxtDescripcion.TabIndex = 9;
             this.rtxtDescripcion.Text = "";
             // 
             // label11
@@ -176,7 +194,7 @@
             this.txtExistencias.Location = new System.Drawing.Point(361, 317);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.Size = new System.Drawing.Size(273, 34);
-            this.txtExistencias.TabIndex = 36;
+            this.txtExistencias.TabIndex = 7;
             // 
             // label10
             // 
@@ -194,7 +212,7 @@
             this.txtPrecioCompra.Location = new System.Drawing.Point(361, 241);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(273, 34);
-            this.txtPrecioCompra.TabIndex = 34;
+            this.txtPrecioCompra.TabIndex = 6;
             // 
             // label9
             // 
@@ -212,7 +230,7 @@
             this.txtUnidadMedida.Location = new System.Drawing.Point(40, 639);
             this.txtUnidadMedida.Name = "txtUnidadMedida";
             this.txtUnidadMedida.Size = new System.Drawing.Size(273, 34);
-            this.txtUnidadMedida.TabIndex = 32;
+            this.txtUnidadMedida.TabIndex = 5;
             // 
             // label8
             // 
@@ -230,7 +248,7 @@
             this.txtImpuesto.Location = new System.Drawing.Point(40, 560);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(273, 34);
-            this.txtImpuesto.TabIndex = 30;
+            this.txtImpuesto.TabIndex = 4;
             // 
             // label7
             // 
@@ -248,7 +266,7 @@
             this.txtDescuento.Location = new System.Drawing.Point(40, 479);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(273, 34);
-            this.txtDescuento.TabIndex = 28;
+            this.txtDescuento.TabIndex = 3;
             // 
             // label6
             // 
@@ -266,7 +284,7 @@
             this.txtPrecioVenta.Location = new System.Drawing.Point(40, 403);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(273, 34);
-            this.txtPrecioVenta.TabIndex = 26;
+            this.txtPrecioVenta.TabIndex = 2;
             // 
             // label5
             // 
@@ -284,7 +302,7 @@
             this.txtCodigoBarras.Location = new System.Drawing.Point(40, 324);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(273, 34);
-            this.txtCodigoBarras.TabIndex = 24;
+            this.txtCodigoBarras.TabIndex = 1;
             // 
             // label4
             // 
@@ -305,24 +323,6 @@
             this.label3.Size = new System.Drawing.Size(216, 31);
             this.label3.TabIndex = 22;
             this.label3.Text = "Datos del producto";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(361, 403);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(273, 34);
-            this.txtUsuario.TabIndex = 46;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(357, 376);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 23);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "Usuario";
             // 
             // FrmAgregarProducto
             // 

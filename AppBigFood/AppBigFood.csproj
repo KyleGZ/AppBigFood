@@ -117,11 +117,23 @@
     <Compile Include="Views\Producto\FrmTablaProductos.Designer.cs">
       <DependentUpon>FrmTablaProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Usuario\FrmActualizarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Usuario\FrmActualizarUsuario.Designer.cs">
+      <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usuario\FrmAgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Usuario\FrmAgregarUsuario.Designer.cs">
       <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usuario\FrmTablaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Usuario\FrmTablaUsuarios.Designer.cs">
+      <DependentUpon>FrmTablaUsuarios.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -166,8 +178,14 @@
     <EmbeddedResource Include="Views\Producto\FrmTablaProductos.resx">
       <DependentUpon>FrmTablaProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario\FrmActualizarUsuario.resx">
+      <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Usuario\FrmAgregarUsuario.resx">
       <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario\FrmTablaUsuarios.resx">
+      <DependentUpon>FrmTablaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

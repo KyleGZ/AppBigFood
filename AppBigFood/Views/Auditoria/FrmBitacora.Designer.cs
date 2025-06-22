@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBitacora));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvBitadora = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitadora)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +46,18 @@
             this.panel1.Size = new System.Drawing.Size(785, 430);
             this.panel1.TabIndex = 0;
             // 
+            // dgvBitadora
+            // 
+            this.dgvBitadora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBitadora.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBitadora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBitadora.Location = new System.Drawing.Point(27, 60);
+            this.dgvBitadora.Name = "dgvBitadora";
+            this.dgvBitadora.RowHeadersWidth = 51;
+            this.dgvBitadora.RowTemplate.Height = 24;
+            this.dgvBitadora.Size = new System.Drawing.Size(730, 350);
+            this.dgvBitadora.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -55,17 +67,6 @@
             this.label1.Size = new System.Drawing.Size(100, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bitacora";
-            // 
-            // dgvBitadora
-            // 
-            this.dgvBitadora.BackgroundColor = System.Drawing.Color.White;
-            this.dgvBitadora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBitadora.Location = new System.Drawing.Point(27, 60);
-            this.dgvBitadora.Name = "dgvBitadora";
-            this.dgvBitadora.RowHeadersWidth = 51;
-            this.dgvBitadora.RowTemplate.Height = 24;
-            this.dgvBitadora.Size = new System.Drawing.Size(730, 350);
-            this.dgvBitadora.TabIndex = 1;
             // 
             // FrmBitacora
             // 

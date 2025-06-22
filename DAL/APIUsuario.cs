@@ -52,6 +52,35 @@ namespace DAL
             }
             return false;
         }//Cierre del método CrearUsuario
+        public List<Usuario> GetUsuarios()
+        {
+            try
+            {
+                //Creamos la instancia de la API
+                _api = new HttpAPI();
+
+                //Consumimos la API
+                HttpClient client = _api.Seguridad();
+
+
+                //Utilizamos los métodos para devolver los cliente
+                HttpResponseMessage response = client.GetAsync("/Usuarios/ListaUsuario").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Se leen los datos que se obtienen del objeto JSON
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Se convierte el objeto JSON al objeto del modelo
+                    return JsonConvert.DeserializeObject<List<Usuario>>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
+        }
 
         public async Task<Usuario> GetUsuario(int ID)
         {
@@ -64,6 +93,33 @@ namespace DAL
                 HttpClient client = _api.Seguridad();
 
                 HttpResponseMessage response = client.GetAsync($"/Usuarios/BuscarUsuarioPorId?id={ID}").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Leemos los datos que se obtienen del objeto JSON
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Convertimos el objeto JSON al objeto modelo
+                    return JsonConvert.DeserializeObject<Usuario>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
+        }
+        public async Task<Usuario> GetUsuarioLogin(string login, string pass)
+        {
+            try
+            {
+                //Creamos la instancia de la API
+                _api = new HttpAPI();
+
+                //Consumimos la API
+                HttpClient client = _api.Seguridad();
+
+                HttpResponseMessage response = client.GetAsync($"/Usuarios/BuscarUsuarioPorLogin?login={login}&pass={pass}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -111,6 +167,63 @@ namespace DAL
                 throw ex;
             }
         }//Cierre del método Login
+        public bool ActualizarUsuario(Usuario usuario)
+        {
+            try
+            {
+                //Creamos la instancia de la API
+                _api = new HttpAPI();
+
+                //Consumimos la API
+                HttpClient client = _api.Seguridad();
+
+                //Se serealiza el objeto Cliente a JSON
+                var json = JsonConvert.SerializeObject(usuario);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                //Se utiliza el método PUT de la API
+                HttpResponseMessage response = client.PutAsync("/Usuarios/EditarUsuario", content).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //La edición del cliente se realizó correctamente
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return false;
+        }//Fin del método ActualizarCliente
+
+        public bool EliminarUsuario(int ID)
+        {
+            try
+            {
+                //Se crea la instancia de la API
+                _api = new HttpAPI();
+
+                //Se consume la API
+                HttpClient client = _api.Seguridad();
+
+                //Utilizamos el método Delete de la API
+                HttpResponseMessage response = client.DeleteAsync($"/Usuarios/EliminarUsuario?id={ID}").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //La edición del producto se realizó correctamente
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return false;
+        }
 
         //    public bool Logout()
         //    {

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,33 +15,38 @@ using AppBigFood.Views.Producto;
 using AppBigFood.Views.Usuario;
 using BLL;
 using DAL;
+using Newtonsoft.Json;
 
 namespace AppBigFood.Views
 {
     public partial class Home : Form
     {
+        //--------------------------------------------------------------------------------------//
         public static string token = null;
         private APIClientes apiClientes = null;
         private APIProducto apiProductos = null;
-        private APIUsuario user = null;
-        private APIFacturas factura = null;
+        private APIUsuario apiUser = null;
+        private APIFacturas apiFactura = null;
+        private HttpAPI gometa = null;
         private Email email = null;
-
+        //--------------------------------------------------------------------------------------//
         private decimal impuesto;
         private decimal descuento;
         private decimal total;
-
+        private decimal totalDolares;
+        //--------------------------------------------------------------------------------------//
         public Home()
         {
             InitializeComponent();
-            this.user = new APIUsuario();
-            this.factura = new APIFacturas();
+            this.apiUser = new APIUsuario();
+            this.apiFactura = new APIFacturas();
             this.apiClientes = new APIClientes();
             this.apiProductos = new APIProducto();
             this.email = new Email();
             this.total = 0;
+            this.totalDolares = 0;
         }
-
+        //--------------------------------------------------------------------------------------//
         //private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         //{
         //    try
@@ -55,33 +61,33 @@ namespace AppBigFood.Views
         //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
-
+        //--------------------------------------------------------------------------------------//
         private void informacionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTablaClientes frm = new FrmTablaClientes();
             frm.ShowDialog();
             frm.Dispose();
         }
-
+        //--------------------------------------------------------------------------------------//
         private void informacionDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTablaProductos frm = new FrmTablaProductos();
             frm.ShowDialog();
             frm.Dispose();
         }
-
+        //--------------------------------------------------------------------------------------//
         private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAgregarUsuario frm = new FrmAgregarUsuario();
+            FrmTablaUsuarios frm = new FrmTablaUsuarios();
             frm.ShowDialog();
             frm.Dispose();
         }
-
+        //--------------------------------------------------------------------------------------//
         private void Home_Load(object sender, EventArgs e)
         {
             this.MostrarLogin();
         }
-
+        //--------------------------------------------------------------------------------------//
         //Método para mostrar login
         private void MostrarLogin()
         {
@@ -97,7 +103,7 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             try
@@ -115,7 +121,7 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             FrmTablaProductos frm = new FrmTablaProductos();
@@ -129,7 +135,7 @@ namespace AppBigFood.Views
             this.descuento = (decimal)frm.PasarProductos().Descuento;
             frm.Dispose();
         }
-
+        //--------------------------------------------------------------------------------------//
         private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -142,6 +148,7 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //--------------------------------------------------------------------------------------//
         private void MostrarFacturas()
         {
             try
@@ -156,7 +163,7 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void cuentasXCobrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -169,6 +176,7 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //--------------------------------------------------------------------------------------//
         private void MostrarCuentasXCobrar()
         {
             try
@@ -183,7 +191,7 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -196,6 +204,7 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //--------------------------------------------------------------------------------------//
         private void MostrarBitacora()
         {
             try
@@ -210,22 +219,25 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void LlenarTabla()
         {
             try
             {
+                decimal tipoCambio = decimal.Parse(this.obtenerTipoCambio().ToString("0.00"));
                 int precio = int.Parse(this.txtPrecio.Text.Trim());
                 int cantidad = int.Parse(this.txtCantidad.Text.Trim());
                 decimal montoDescuento = precio * (descuento / 100);
                 decimal montoImpuesto = precio * (impuesto / 100);        
                 var subtotal =  ((precio + montoImpuesto) - montoDescuento) * cantidad;
                 total = total+subtotal;
+                totalDolares = decimal.Parse(total.ToString("0.00"))/tipoCambio;
                 this.dgvCarrito.Rows.Add(this.txtCodigoProducto.Text, 
                     this.txtNombreProducto.Text, this.txtPrecio.Text, this.txtCantidad.Text, 
                     this.impuesto, this.descuento, subtotal);
                 this.dgvCarrito.AutoResizeColumns();
                 this.txtTotalPagar.Text = total.ToString();
+                this.txtTotalDolares.Text = totalDolares.ToString("0.00");
 
                 this.txtCodigoProducto.Text = "";
                 this.txtNombreProducto.Text = "";
@@ -239,7 +251,7 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -252,7 +264,7 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -281,6 +293,7 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //--------------------------------------------------------------------------------------//
         private void RealizarFactura()
         {
             try
@@ -291,7 +304,7 @@ namespace AppBigFood.Views
                 decimal montoImpuesto = precio * (impuesto / 100);
                 var subtotal = ((precio + montoImpuesto) - montoDescuento) * cantidad;
                 total = total + subtotal;
-                int numeroFactura = this.factura.GetFacturas().Count()+1;
+                int numeroFactura = this.apiFactura.GetFacturas().Count()+1;
                 var temp = this.apiClientes.GetCliente(int.Parse(this.txtCedula.Text.Trim()));
                 Factura factura = new Factura()
                 {
@@ -304,49 +317,67 @@ namespace AppBigFood.Views
                     Total = decimal.Parse(this.txtTotalPagar.Text.Trim()),
                     estado = temp.estado,
                     Usuario = temp.Usuario,
-                    TipoPago = this.cbTipoPago.Text.Substring(0,1),
-                    Condicion = this.cbCondicion.Text.Substring(0,1),
+                    TipoPago = this.cbTipoPago.SelectedItem.ToString(),
+                    Condicion = this.cbCondicion.SelectedItem.ToString(),
                 };
-                this.factura.CrearFactura(factura);
-                //if (this.cbCondicion.Text.Substring(0,1)=="B")
-                //{
-                //    Bitacora bitacora = new Bitacora()
-                //    {
-                //        Tabla = "Bitacora",
-                //        Usuario = temp.Usuario,
-                //        Maquina = "Home",
-                //        Fecha = DateTime.Now,
-                //        TipoMov = "Compra",
-                //        Registro = temp.NombreCompleto
-                //    };
-                //    this.factura.CrearBitacora(bitacora);
-                //}
+                this.apiFactura.CrearFactura(factura);
+                if (this.cbCondicion.SelectedItem.ToString() == "Credito")
+                {
+                    CuentasXCobrar cuentas = new CuentasXCobrar()
+                    {
+                        numFactura = numeroFactura,
+                        codCliente = temp.cedulaLegal,
+                        FechaFactura = factura.Fecha,
+                        FechaRegistro = DateTime.Now,
+                        montoFactura = decimal.Parse(this.txtTotalPagar.Text.Trim()),
+                        usuario = temp.Usuario,
+                        estado = temp.estado
+                    };
+                    this.apiFactura.CrearCuentasXCobarar(cuentas);
+                    Bitacora bitaco = new Bitacora()
+                    {
+                        Tabla = "Home",
+                        Usuario = temp.Usuario,
+                        Maquina = "Home",
+                        Fecha = DateTime.Now,
+                        TipoMov = "CxC",
+                        Registro = temp.NombreCompleto
+                    };
+                    this.apiFactura.CrearBitacora(bitaco);
+                }
+                Bitacora bitacora = new Bitacora()
+                {
+                    Tabla = "Home",
+                    Usuario = temp.Usuario,
+                    Maquina = "Home",
+                    Fecha = DateTime.Now,
+                    TipoMov = "Compra",
+                    Registro = temp.NombreCompleto
+                };
+                this.apiFactura.CrearBitacora(bitacora);
                 var producto = this.apiProductos.GetProducto(int.Parse(this.dgvCarrito.Rows[0].Cells[0].Value.ToString()));
-                //BLL.Producto product = new BLL.Producto()
-                //{
-                //    CodigoInterno = int.Parse(this.txtCodigoProducto.Text.Trim()),
-                //    CodigoBarra = producto.CodigoBarra,
-                //    Descripcion = producto.Descripcion,
-                //    PrecioVenta = (decimal)double.Parse(this.txtPrecio.Text.Trim()),
-                //    Descuento = producto.Descuento,
-                //    Impuesto = producto.Impuesto,
-                //    UnidadMedida = producto.UnidadMedida,
-                //    PrecioCompra = producto.PrecioCompra,
-                //    Usuario = producto.Usuario,
-                //    Existencia = producto.Existencia-int.Parse(this.txtCantidad.Text.Trim())
-                //};
-                //this.apiProductos.ActualizarProducto(product);
-                this.email.GenerarPDF(factura,temp,producto);
-                this.email.Enviar(factura, temp, producto);
+                BLL.Producto product = new BLL.Producto()
+                {
+                    CodigoInterno = int.Parse(this.dgvCarrito.Rows[0].Cells[0].Value.ToString()),
+                    CodigoBarra = producto.CodigoBarra,
+                    Descripcion = producto.Descripcion,
+                    PrecioVenta = (decimal)double.Parse(this.dgvCarrito.Rows[0].Cells[2].Value.ToString()),
+                    Descuento = producto.Descuento,
+                    Impuesto = producto.Impuesto,
+                    UnidadMedida = producto.UnidadMedida,
+                    PrecioCompra = producto.PrecioCompra,
+                    Usuario = producto.Usuario,
+                    Existencia = producto.Existencia - int.Parse(this.dgvCarrito.Rows[0].Cells[3].Value.ToString())
+                };
+                this.apiProductos.ActualizarProducto(product);
                 // Crear una lista para almacenar las filas que se eliminarán
                 List<DataGridViewRow> filasEliminar = new List<DataGridViewRow>();
-                DetalleFactura detalle = new DetalleFactura();
-
+                List<DetalleFactura> detallesFactura = new List<DetalleFactura>();
                 // Recorrer las filas del DataGridView
                 for (int i = 0; i < dgvCarrito.Rows.Count-1; i++)
                 {
                     DataGridViewRow fila = dgvCarrito.Rows[i];
-
+                    DetalleFactura detalle = new DetalleFactura();
                     // Obtener los datos de la fila
                     detalle.numFactura = numeroFactura;
                     detalle.codInterno = int.Parse(fila.Cells[0].Value.ToString());
@@ -358,9 +389,11 @@ namespace AppBigFood.Views
 
                     // Agregar la fila a la lista de filas a eliminar
                     filasEliminar.Add(fila);
-                    this.factura.CrearFacturaDetalle(detalle);
+                    detallesFactura.Add(detalle);
+                    this.apiFactura.CrearFacturaDetalle(detalle);  
                 }
-
+                this.email.GenerarPDF(factura, temp, producto, detallesFactura);
+                this.email.Enviar(factura, temp, producto, detallesFactura);
                 // Eliminar las filas de la lista
                 foreach (DataGridViewRow filaEliminar in filasEliminar)
                 {
@@ -373,13 +406,13 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-
+        //--------------------------------------------------------------------------------------//
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             try
             {
                 this.CancelarCompra();
-                //this.ActualizarTotal();
+                //this.ActualizarTotal(); 
             }
             catch (Exception ex)
             {
@@ -387,6 +420,7 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //--------------------------------------------------------------------------------------//
         private void CancelarCompra()
         {
             try
@@ -398,6 +432,11 @@ namespace AppBigFood.Views
                 {
                     DataGridViewRow fila = dgvCarrito.Rows[i];
 
+                    if (fila.IsNewRow)
+                    {
+                        continue;
+                    }
+
                     // Agregar la fila a la lista de filas a eliminar
                     filasEliminar.Add(fila);
                 }
@@ -407,9 +446,11 @@ namespace AppBigFood.Views
                 {
                     dgvCarrito.Rows.Remove(filaEliminar);
                 }
-
+                MessageBox.Show("Compra cancelada con exito", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.txtTotalPagar.Text = "";
+                this.txtTotalDolares.Text = "";
                 this.total = 0;
+                this.totalDolares = 0;
                 this.impuesto = 0;
                 this.descuento = 0;
             }
@@ -419,47 +460,95 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
+        //--------------------------------------------------------------------------------------//
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvCarrito.SelectedRows.Count > 0)
+            {
+                // Confirmación opcional
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar esta fila?",
+                                                      "Confirmar eliminación",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Warning);
 
-        //private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    if (dgvCarrito.SelectedRows.Count > 0)
-        //    {
-        //        // Confirmación opcional
-        //        DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar esta fila?",
-        //                                              "Confirmar eliminación",
-        //                                              MessageBoxButtons.YesNo,
-        //                                              MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    // Elimina la fila seleccionada
+                    dgvCarrito.Rows.RemoveAt(dgvCarrito.SelectedRows[0].Index);
+                    this.ActualizarTotal();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-        //        if (result == DialogResult.Yes)
-        //        {
-        //            // Elimina la fila seleccionada
-        //            dgvCarrito.Rows.RemoveAt(dgvCarrito.SelectedRows[0].Index);
-        //            this.ActualizarTotal();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Seleccione una fila para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
+        }
+        private void ActualizarTotal()
+        {
+            decimal total = 0;
+            decimal totalDolares = 0;
+            decimal tipoCambio = decimal.Parse(this.obtenerTipoCambio().ToString("0.00"));
 
-        //}
-        //private void ActualizarTotal()
-        //{
-        //    decimal total = 0;
+            foreach (DataGridViewRow fila in dgvCarrito.Rows)
+            {
+                if (fila.Cells["SubTotal"].Value != null)
+                {
+                    decimal precio;
+                    if (decimal.TryParse(fila.Cells["subTotal"].Value.ToString(), out precio))
+                    {
+                        total += precio;
+                        totalDolares += total/tipoCambio;
+                    }
+                }
+            }
+            Math.Round(totalDolares, 2);
+            txtTotalPagar.Text = total.ToString("");
+            txtTotalDolares.Text = totalDolares.ToString("0.00");
+        }
 
-        //    foreach (DataGridViewRow fila in dgvCarrito.Rows)
-        //    {
-        //        if (fila.Cells["SubTotal"].Value != null)
-        //        {
-        //            decimal precio;
-        //            if (decimal.TryParse(fila.Cells["subTotal"].Value.ToString(), out precio))
-        //            {
-        //                total += precio;
-        //            }
-        //        }
-        //    }
+        private decimal obtenerTipoCambio()
+        {
+            try
+            {
+                // Crear instancia y llamar la API
+                this.gometa = new HttpAPI();
+                HttpClient client = this.gometa.Gometa();
 
-        //    txtTotalPagar.Text = total.ToString("");
-        //}
+                // Llamar al endpoint del tipo de cambio
+                HttpResponseMessage response = client.GetAsync("/tdc/tdc.json").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var contenido = response.Content.ReadAsStringAsync().Result;
+
+                    // Deserializar contenido
+                    var tipoCambio = JsonConvert.DeserializeObject<TipoCambioResponse>(contenido);
+
+                    // Retornar valor (ajusta según la estructura real del JSON)
+                    return (decimal)tipoCambio.Venta;
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo obtener el tipo de cambio. Código: " + response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar el tipo de cambio: " + ex.Message);
+            }
+
+            return 0m; // Retorna 0 si hubo error
+        }
+        public class TipoCambioResponse
+        {
+            [JsonProperty("venta")]
+            public decimal Venta { get; set; }
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }//
 }//

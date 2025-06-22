@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,7 +48,7 @@ namespace AppBigFood.Views.Cliente
                     clientes = new BLL.Cliente()
                     {
                         cedulaLegal = txtCedula.Text.Trim(),
-                        tipoCedula = this.cbTipoCedula.Text.Substring(0,1),
+                        tipoCedula = this.cbTipoCedula.SelectedItem.ToString(),
                         NombreCompleto = txtFullName.Text,
                         Email = txtEmail.Text.Trim(),
                         fechaRegistro = DateTime.Now,
@@ -55,7 +56,6 @@ namespace AppBigFood.Views.Cliente
                         Usuario = int.Parse(this.txtUsuario.Text.Trim())
                     };
                 this.apiClientes.CrearCliente(clientes);
-
                 MessageBox.Show("Cliente registrado correctamente", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -96,11 +96,6 @@ namespace AppBigFood.Views.Cliente
             {
                 extraerDatos(cedula);
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }//
 }//

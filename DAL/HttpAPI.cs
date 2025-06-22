@@ -13,7 +13,7 @@ namespace DAL
         {
             var client = new HttpClient();
 
-            client.BaseAddress = new Uri("https://localhost:7141");
+            client.BaseAddress = new Uri("http://www.ApiBigFoodSA.somee.com");
 
             return client;
         }
@@ -22,7 +22,7 @@ namespace DAL
         {
             var client = new HttpClient();
 
-            client.BaseAddress = new Uri("https://localhost:7284");
+            client.BaseAddress = new Uri("http://www.ApiSecurity.somee.com");
 
             return client;
         }

@@ -104,7 +104,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(375, 488);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(273, 34);
-            this.txtUsuario.TabIndex = 48;
+            this.txtUsuario.TabIndex = 8;
             // 
             // label12
             // 
@@ -153,7 +153,7 @@
             this.rtxtDescripcion.Location = new System.Drawing.Point(375, 569);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
             this.rtxtDescripcion.Size = new System.Drawing.Size(273, 58);
-            this.rtxtDescripcion.TabIndex = 20;
+            this.rtxtDescripcion.TabIndex = 9;
             this.rtxtDescripcion.Text = "";
             // 
             // label11
@@ -172,7 +172,7 @@
             this.txtExistencias.Location = new System.Drawing.Point(375, 408);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.Size = new System.Drawing.Size(273, 34);
-            this.txtExistencias.TabIndex = 18;
+            this.txtExistencias.TabIndex = 7;
             // 
             // label10
             // 
@@ -190,7 +190,7 @@
             this.txtPrecioCompra.Location = new System.Drawing.Point(375, 332);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(273, 34);
-            this.txtPrecioCompra.TabIndex = 16;
+            this.txtPrecioCompra.TabIndex = 6;
             // 
             // label9
             // 
@@ -208,7 +208,7 @@
             this.txtUnidadMedida.Location = new System.Drawing.Point(41, 649);
             this.txtUnidadMedida.Name = "txtUnidadMedida";
             this.txtUnidadMedida.Size = new System.Drawing.Size(273, 34);
-            this.txtUnidadMedida.TabIndex = 14;
+            this.txtUnidadMedida.TabIndex = 5;
             // 
             // label8
             // 
@@ -226,7 +226,7 @@
             this.txtImpuesto.Location = new System.Drawing.Point(41, 569);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(273, 34);
-            this.txtImpuesto.TabIndex = 12;
+            this.txtImpuesto.TabIndex = 4;
             // 
             // label7
             // 
@@ -244,7 +244,7 @@
             this.txtDescuento.Location = new System.Drawing.Point(41, 488);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(273, 34);
-            this.txtDescuento.TabIndex = 10;
+            this.txtDescuento.TabIndex = 3;
             // 
             // label6
             // 
@@ -262,7 +262,7 @@
             this.txtPrecioVenta.Location = new System.Drawing.Point(41, 412);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(273, 34);
-            this.txtPrecioVenta.TabIndex = 8;
+            this.txtPrecioVenta.TabIndex = 2;
             // 
             // label5
             // 
@@ -276,11 +276,12 @@
             // 
             // txtCodigoBarras
             // 
+            this.txtCodigoBarras.Enabled = false;
             this.txtCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoBarras.Location = new System.Drawing.Point(41, 333);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(273, 34);
-            this.txtCodigoBarras.TabIndex = 6;
+            this.txtCodigoBarras.TabIndex = 1;
             // 
             // label4
             // 
@@ -304,11 +305,12 @@
             // 
             // txtCodigoInterno
             // 
+            this.txtCodigoInterno.Enabled = false;
             this.txtCodigoInterno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoInterno.Location = new System.Drawing.Point(41, 210);
             this.txtCodigoInterno.Name = "txtCodigoInterno";
             this.txtCodigoInterno.Size = new System.Drawing.Size(453, 34);
-            this.txtCodigoInterno.TabIndex = 3;
+            this.txtCodigoInterno.TabIndex = 0;
             // 
             // label2
             // 
