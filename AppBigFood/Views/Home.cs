@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppBigFood.Views.Auditoria;
 using AppBigFood.Views.Cliente;
@@ -21,7 +15,6 @@ namespace AppBigFood.Views
 {
     public partial class Home : Form
     {
-        //--------------------------------------------------------------------------------------//
         public static string token = null;
         private APIClientes apiClientes = null;
         private APIProducto apiProductos = null;
@@ -29,12 +22,11 @@ namespace AppBigFood.Views
         private APIFacturas apiFactura = null;
         private HttpAPI gometa = null;
         private Email email = null;
-        //--------------------------------------------------------------------------------------//
+       
         private decimal impuesto;
         private decimal descuento;
         private decimal total;
         private decimal totalDolares;
-        //--------------------------------------------------------------------------------------//
         public Home()
         {
             InitializeComponent();
@@ -46,49 +38,22 @@ namespace AppBigFood.Views
             this.total = 0;
             this.totalDolares = 0;
         }
-        //--------------------------------------------------------------------------------------//
-        //private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        //this.varObjUser.Logout();
-        //        this.MostrarLogin();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-        //--------------------------------------------------------------------------------------//
         private void informacionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTablaClientes frm = new FrmTablaClientes();
             frm.ShowDialog();
             frm.Dispose();
         }
-        //--------------------------------------------------------------------------------------//
         private void informacionDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTablaProductos frm = new FrmTablaProductos();
             frm.ShowDialog();
             frm.Dispose();
         }
-        //--------------------------------------------------------------------------------------//
-        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmTablaUsuarios frm = new FrmTablaUsuarios();
-            frm.ShowDialog();
-            frm.Dispose();
-        }
-        //--------------------------------------------------------------------------------------//
         private void Home_Load(object sender, EventArgs e)
         {
             this.MostrarLogin();
         }
-        //--------------------------------------------------------------------------------------//
-        //Método para mostrar login
         private void MostrarLogin()
         {
             try
@@ -103,7 +68,6 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             try
@@ -121,7 +85,6 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             FrmTablaProductos frm = new FrmTablaProductos();
@@ -135,7 +98,6 @@ namespace AppBigFood.Views
             this.descuento = (decimal)frm.PasarProductos().Descuento;
             frm.Dispose();
         }
-        //--------------------------------------------------------------------------------------//
         private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -550,5 +512,5 @@ namespace AppBigFood.Views
         {
             Environment.Exit(0);
         }
-    }//
-}//
+    }
+}
