@@ -82,7 +82,6 @@
             this.Name = "FrmFacturas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturas";
-            this.Load += new System.EventHandler(this.FrmFacturas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();

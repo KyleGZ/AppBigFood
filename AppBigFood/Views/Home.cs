@@ -145,32 +145,6 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.MostrarBitacora();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void MostrarBitacora()
-        {
-            try
-            {
-                FrmBitacora frm = new FrmBitacora();
-                frm.ShowDialog();
-                frm.Dispose();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
         private void LlenarTabla()
         {
             try

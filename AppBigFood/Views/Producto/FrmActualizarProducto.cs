@@ -85,7 +85,6 @@ namespace AppBigFood.Views.Producto
                     TipoMov = "Modificado",
                     Registro = producto.Descripcion
                 };
-                this.apiFactura.CrearBitacora(bitacora);
                 MessageBox.Show("Producto modificado correctamente", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

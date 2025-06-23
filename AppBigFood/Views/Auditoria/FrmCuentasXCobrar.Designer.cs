@@ -82,7 +82,6 @@
             this.Name = "FrmCuentasXCobrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuentas X Cobrar";
-            this.Load += new System.EventHandler(this.FrmCuentasXCobrar_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentas)).EndInit();
