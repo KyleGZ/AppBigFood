@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppBigFood.Views;
 using BLL;
 using DAL;
-using Newtonsoft.Json;
 
 namespace AppBigFood
 {
@@ -51,33 +43,6 @@ namespace AppBigFood
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //private async void Auntenticarse()
-        //{
-        //    try
-        //    {
-        //        this.user = new Usuario();
-        //        this.user.login = this.txtUsuario.Text.Trim();
-        //        this.user.password = this.txtPassword.Text.Trim();
-
-        //        AutorizacionResponse autorizacionResponse =
-        //        await this._apiUsuario.Login(this.user);
-        //        if (autorizacionResponse != null)
-        //        {
-        //            Home.token = autorizacionResponse.Token;
-        //            this.Close();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Email o password incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //}
-
         private async void Autenticarse()
         {
             try
@@ -88,15 +53,19 @@ namespace AppBigFood
                     Contrasena = this.txtPassword.Text.Trim()
                 };
 
-                // Llamar al método de login de tu API
+                // Llamar al método de login de la API
                 AutorizacionResponse autorizacionResponse = await this._apiUsuario.Login(usuario);
 
                 if (autorizacionResponse != null && !string.IsNullOrEmpty(autorizacionResponse.Token))
                 {
-                    // Asigna el token en Home
+                    // Asignar token globalmente
                     Home.token = autorizacionResponse.Token;
 
-                    // Cierra el formulario Login
+                    // Cargar permisos desde API Security
+                    var httpAPI = new HttpAPI();
+                    Sesion.Permisos = await httpAPI.ObtenerPermisos(usuario.NombreUsuario, "BigFOOD");
+
+                    // Cerrar el formulario
                     this.Close();
                 }
                 else
@@ -109,9 +78,6 @@ namespace AppBigFood
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);

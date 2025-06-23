@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppBigFood.Views.Auditoria;
 using AppBigFood.Views.Cliente;
 using AppBigFood.Views.Producto;
-using AppBigFood.Views.Usuario;
 using BLL;
 using DAL;
 using Newtonsoft.Json;
@@ -23,7 +23,7 @@ namespace AppBigFood.Views
         private APIFacturas apiFactura = null;
         private HttpAPI gometa = null;
         private Email email = null;
-       
+
         private decimal impuesto;
         private decimal descuento;
         private decimal total;
@@ -42,51 +42,6 @@ namespace AppBigFood.Views
             this.total = 0;
             this.totalDolares = 0;
         }
-        private async void informacionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //FrmTablaClientes frm = new FrmTablaClientes();
-            //frm.ShowDialog();
-            //frm.Dispose();
-
-            try
-            {
-                // Obtener el token desde la variable global Home.token
-                string token = Home.token;  // Suponiendo que el token se almacena en Home.token
-
-                // Verificar si el token está disponible
-                if (string.IsNullOrEmpty(token))
-                {
-                    MessageBox.Show("No has iniciado sesión correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Creamos la instancia de APIUsuario para llamar al método GetPermisosUsuarioLogeado
-                APIUsuario apiUsuario = new APIUsuario();
-
-                // Llamamos al método para obtener los permisos del usuario logeado, pasando el token
-                List<dynamic> permisos = await apiUsuario.GetPermisosUsuarioLogeado(token);
-
-                // Verificamos si permisos es null o no tiene elementos
-                if (permisos != null && permisos.Any(p => p.Pantalla == "Clientes"))
-                {
-                    // Si el usuario tiene permiso, abrir el formulario FrmTablaClientes
-                    FrmTablaClientes frm = new FrmTablaClientes();
-                    frm.ShowDialog();
-                    frm.Dispose();
-                }
-                else
-                {
-                    // Si el usuario no tiene el permiso, mostramos un mensaje de advertencia
-                    MessageBox.Show("No tienes permiso para acceder a esta sección.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores
-                MessageBox.Show("Ocurrió un error al verificar los permisos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void informacionDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTablaProductos frm = new FrmTablaProductos();
@@ -153,7 +108,6 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void MostrarFacturas()
         {
             try
@@ -168,7 +122,6 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void cuentasXCobrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -181,7 +134,6 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void MostrarCuentasXCobrar()
         {
             try
@@ -196,7 +148,6 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -209,7 +160,6 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void MostrarBitacora()
         {
             try
@@ -224,7 +174,6 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void LlenarTabla()
         {
             try
@@ -233,12 +182,12 @@ namespace AppBigFood.Views
                 int precio = int.Parse(this.txtPrecio.Text.Trim());
                 int cantidad = int.Parse(this.txtCantidad.Text.Trim());
                 decimal montoDescuento = precio * (descuento / 100);
-                decimal montoImpuesto = precio * (impuesto / 100);        
-                var subtotal =  ((precio + montoImpuesto) - montoDescuento) * cantidad;
-                total = total+subtotal;
-                totalDolares = decimal.Parse(total.ToString("0.00"))/tipoCambio;
-                this.dgvCarrito.Rows.Add(this.txtCodigoProducto.Text, 
-                    this.txtNombreProducto.Text, this.txtPrecio.Text, this.txtCantidad.Text, 
+                decimal montoImpuesto = precio * (impuesto / 100);
+                var subtotal = ((precio + montoImpuesto) - montoDescuento) * cantidad;
+                total = total + subtotal;
+                totalDolares = decimal.Parse(total.ToString("0.00")) / tipoCambio;
+                this.dgvCarrito.Rows.Add(this.txtCodigoProducto.Text,
+                    this.txtNombreProducto.Text, this.txtPrecio.Text, this.txtCantidad.Text,
                     this.impuesto, this.descuento, subtotal);
                 this.dgvCarrito.AutoResizeColumns();
                 this.txtTotalPagar.Text = total.ToString();
@@ -256,7 +205,6 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -269,7 +217,6 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -298,7 +245,6 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void RealizarFactura()
         {
             try
@@ -309,7 +255,7 @@ namespace AppBigFood.Views
                 decimal montoImpuesto = precio * (impuesto / 100);
                 var subtotal = ((precio + montoImpuesto) - montoDescuento) * cantidad;
                 total = total + subtotal;
-                int numeroFactura = this.apiFactura.GetFacturas().Count()+1;
+                int numeroFactura = this.apiFactura.GetFacturas().Count() + 1;
                 var temp = this.apiClientes.GetCliente(int.Parse(this.txtCedula.Text.Trim()));
                 Factura factura = new Factura()
                 {
@@ -375,15 +321,15 @@ namespace AppBigFood.Views
                     Existencia = producto.Existencia - int.Parse(this.dgvCarrito.Rows[0].Cells[3].Value.ToString())
                 };
                 this.apiProductos.ActualizarProducto(product);
-                // Crear una lista para almacenar las filas que se eliminarán
+
                 List<DataGridViewRow> filasEliminar = new List<DataGridViewRow>();
                 List<DetalleFactura> detallesFactura = new List<DetalleFactura>();
-                // Recorrer las filas del DataGridView
-                for (int i = 0; i < dgvCarrito.Rows.Count-1; i++)
+
+                for (int i = 0; i < dgvCarrito.Rows.Count - 1; i++)
                 {
                     DataGridViewRow fila = dgvCarrito.Rows[i];
                     DetalleFactura detalle = new DetalleFactura();
-                    // Obtener los datos de la fila
+
                     detalle.numFactura = numeroFactura;
                     detalle.codInterno = int.Parse(fila.Cells[0].Value.ToString());
                     detalle.cantidad = (int.Parse(fila.Cells[3].Value.ToString()));
@@ -392,14 +338,14 @@ namespace AppBigFood.Views
                     detalle.PorImp = (int.Parse(fila.Cells[4].Value.ToString()));
                     detalle.PorDescuento = (int.Parse(fila.Cells[5].Value.ToString()));
 
-                    // Agregar la fila a la lista de filas a eliminar
+
                     filasEliminar.Add(fila);
                     detallesFactura.Add(detalle);
-                    this.apiFactura.CrearFacturaDetalle(detalle);  
+                    this.apiFactura.CrearFacturaDetalle(detalle);
                 }
                 this.email.GenerarPDF(factura, temp, producto, detallesFactura);
                 this.email.Enviar(factura, temp, producto, detallesFactura);
-                // Eliminar las filas de la lista
+
                 foreach (DataGridViewRow filaEliminar in filasEliminar)
                 {
                     dgvCarrito.Rows.Remove(filaEliminar);
@@ -411,13 +357,11 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             try
             {
                 this.CancelarCompra();
-                //this.ActualizarTotal(); 
             }
             catch (Exception ex)
             {
@@ -425,14 +369,12 @@ namespace AppBigFood.Views
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void CancelarCompra()
         {
             try
             {
                 List<DataGridViewRow> filasEliminar = new List<DataGridViewRow>();
 
-                // Recorrer las filas del DataGridView
                 for (int i = 0; i < dgvCarrito.Rows.Count; i++)
                 {
                     DataGridViewRow fila = dgvCarrito.Rows[i];
@@ -442,11 +384,9 @@ namespace AppBigFood.Views
                         continue;
                     }
 
-                    // Agregar la fila a la lista de filas a eliminar
                     filasEliminar.Add(fila);
                 }
 
-                // Eliminar las filas de la lista
                 foreach (DataGridViewRow filaEliminar in filasEliminar)
                 {
                     dgvCarrito.Rows.Remove(filaEliminar);
@@ -465,12 +405,10 @@ namespace AppBigFood.Views
                 throw ex;
             }
         }
-        //--------------------------------------------------------------------------------------//
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dgvCarrito.SelectedRows.Count > 0)
             {
-                // Confirmación opcional
                 DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar esta fila?",
                                                       "Confirmar eliminación",
                                                       MessageBoxButtons.YesNo,
@@ -478,7 +416,6 @@ namespace AppBigFood.Views
 
                 if (result == DialogResult.Yes)
                 {
-                    // Elimina la fila seleccionada
                     dgvCarrito.Rows.RemoveAt(dgvCarrito.SelectedRows[0].Index);
                     this.ActualizarTotal();
                 }
@@ -503,7 +440,7 @@ namespace AppBigFood.Views
                     if (decimal.TryParse(fila.Cells["subTotal"].Value.ToString(), out precio))
                     {
                         total += precio;
-                        totalDolares += total/tipoCambio;
+                        totalDolares += total / tipoCambio;
                     }
                 }
             }
@@ -550,10 +487,45 @@ namespace AppBigFood.Views
             [JsonProperty("venta")]
             public decimal Venta { get; set; }
         }
-
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private async Task CargarPermisosDesdeAPI()
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri("https://localhost:7157/");
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Sesion.Token);
+
+                var response = await client.GetAsync($"/UsuarioPantallaPermiso/GetPermisosPorUsuario?login={Sesion.UsuarioLogin}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var permisos = JsonConvert.DeserializeObject<List<PermisoDTO>>(json);
+                    Sesion.Permisos = permisos ?? new List<PermisoDTO>();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudieron cargar los permisos del usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Sesion.Permisos = new List<PermisoDTO>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar permisos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Sesion.Permisos = new List<PermisoDTO>();
+            }
+        }
+
+        private void informacionDeClientesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmTablaClientes frm = new FrmTablaClientes();
+            frm.ShowDialog();
+            frm.Dispose();
         }
     }
 }
