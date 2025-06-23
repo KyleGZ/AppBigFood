@@ -67,6 +67,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APISecurity\Pantalla.cs" />
+    <Compile Include="APISecurity\Permiso.cs" />
+    <Compile Include="APISecurity\Rol.cs" />
+    <Compile Include="APISecurity\RolPantallaPermiso.cs" />
+    <Compile Include="APISecurity\Sistema.cs" />
+    <Compile Include="APISecurity\UsuarioPantallaPermiso.cs" />
+    <Compile Include="APISecurity\UsuarioRol.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteGometa.cs" />
