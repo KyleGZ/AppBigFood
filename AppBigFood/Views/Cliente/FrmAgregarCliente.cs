@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DAL;
@@ -70,7 +62,6 @@ namespace AppBigFood.Views.Cliente
         {
             try
             {
-                // Crear instancia y llamar la API
                 this._api = new HttpAPI();
                 HttpClient client = this._api.Gometa();
 
@@ -97,5 +88,5 @@ namespace AppBigFood.Views.Cliente
                 extraerDatos(cedula);
             }
         }
-    }//
-}//
+    }
+}

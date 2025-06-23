@@ -57,10 +57,8 @@ namespace AppBigFood.Views.Cliente
             {
                 FrmActualizarCliente frm = new FrmActualizarCliente();
 
-                //Se crea la instancia el objeto
                 BLL.Cliente temp = new BLL.Cliente();
 
-                //Se rellenan los campos del objeto con la fila seleccionada
                 temp.cedulaLegal = this.dgvTablaClientes.SelectedRows[0].Cells[0].Value.ToString();
                 temp.tipoCedula = this.dgvTablaClientes.SelectedRows[0].Cells[1].Value.ToString();
                 temp.NombreCompleto = this.dgvTablaClientes.SelectedRows[0].Cells[2].Value.ToString();
@@ -69,12 +67,10 @@ namespace AppBigFood.Views.Cliente
                 temp.estado = char.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[5].Value.ToString());
                 temp.Usuario = int.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[6].Value.ToString());
 
-                //Se pasa el objeto al formulario
                 frm.PasarDatos(temp);
 
                 frm.ShowDialog();
                 frm.Dispose();
-
             }
             catch (Exception ex)
             {
@@ -87,19 +83,15 @@ namespace AppBigFood.Views.Cliente
         {
             try
             {
-                //Se valida que el usuario tenga una fila seleccionada
                 if (this.dgvTablaClientes.SelectedRows.Count <= 0)
                 {
                     throw new Exception("Seleccione la fila del usuario que desea eliminar");
                 }
 
-                //Solicitamos confirmacion para eliminar
                 if (MessageBox.Show("Desea eliminar el cliente seleccionado", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //Se toma la fila seleccionada y se extrae el login en la celda 0
                     this.EjecutarEliminar(int.Parse(this.dgvTablaClientes.SelectedRows[0].Cells[0].Value.ToString()));
 
-                    //Se actualiza la lista
                     this.ConsultarPorNombre();
                 }
             }
@@ -154,7 +146,6 @@ namespace AppBigFood.Views.Cliente
         {
             try
             {
-                //Se valida que el destino tenga una fila seleccionada
                 if (this.dgvTablaClientes.SelectedRows.Count <= 0)
                 {
                     throw new Exception("Seleccione la fila del cliente que desea seleccionar");
@@ -186,5 +177,5 @@ namespace AppBigFood.Views.Cliente
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }//
-}//
+    }
+}
