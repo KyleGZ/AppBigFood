@@ -16,7 +16,6 @@ namespace BLL
                 p.Accion.ToLower() == accion.ToLower());
         }
     }
-
     public class PermisoDTO
     {
         public string Pantalla { get; set; }

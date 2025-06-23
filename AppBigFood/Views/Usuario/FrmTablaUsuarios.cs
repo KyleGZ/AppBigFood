@@ -36,67 +36,19 @@ namespace AppBigFood.Views.Usuario
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.MostrarActualizarUsuario();
-        //        this.ConsultarPorNombre();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void MostrarActualizarUsuario()
-        //{
-        //    try
-        //    {
-        //        FrmActualizarUsuario frm = new FrmActualizarUsuario();
-
-        //        //Se crea la instancia el objeto
-        //        BLL.Usuario temp = new BLL.Usuario();
-
-        //        //Se rellenan los campos del objeto con la fila seleccionada
-        //        temp.Id = int.Parse(this.dgvTablaUsuario.SelectedRows[0].Cells[0].Value.ToString());
-        //        temp.login = this.dgvTablaUsuario.SelectedRows[0].Cells[1].Value.ToString();
-        //        temp.password = this.dgvTablaUsuario.SelectedRows[0].Cells[2].Value.ToString();
-        //        temp.estado = char.Parse(this.dgvTablaUsuario.SelectedRows[0].Cells[4].Value.ToString());
-
-        //        //Se pasa el objeto al formulario
-        //        frm.PasarDatos(temp);
-
-        //        frm.ShowDialog();
-        //        frm.Dispose();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //}
-
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                //Se valida que el usuario tenga una fila seleccionada
                 if (this.dgvTablaUsuario.SelectedRows.Count <= 0)
                 {
                     throw new Exception("Seleccione la fila del usuario que desea eliminar");
                 }
 
-                //Solicitamos confirmacion para eliminar
                 if (MessageBox.Show("Desea eliminar el cliente seleccionado", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //Se toma la fila seleccionada y se extrae el login en la celda 0
                     this.EjecutarEliminar(int.Parse(this.dgvTablaUsuario.SelectedRows[0].Cells[0].Value.ToString()));
 
-                    //Se actualiza la lista
                     this.ConsultarPorNombre();
                 }
             }

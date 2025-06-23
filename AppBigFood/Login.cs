@@ -9,19 +9,14 @@ namespace AppBigFood
 {
     public partial class Login : Form
     {
-        //Variable para almacenar los datos del usuario
         private Usuario user = null;
 
-        //Variable para manejar la referencia para la web api
         private HttpAPI _client = null;
 
-        //Variable para usar los metodos en la api
         private HttpClient _api = null;
-
         public Home HomeForm { get; set; }
 
         private APIUsuario _apiUsuario = null;
-
         public Login()
         {
             InitializeComponent();
@@ -30,7 +25,6 @@ namespace AppBigFood
             _apiUsuario = new APIUsuario();
             
         }
-
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -53,19 +47,15 @@ namespace AppBigFood
                     Contrasena = this.txtPassword.Text.Trim()
                 };
 
-                // Llamar al método de login de la API
                 AutorizacionResponse autorizacionResponse = await this._apiUsuario.Login(usuario);
 
                 if (autorizacionResponse != null && !string.IsNullOrEmpty(autorizacionResponse.Token))
                 {
-                    // Asignar token globalmente
                     Home.token = autorizacionResponse.Token;
 
-                    // Cargar permisos desde API Security
                     var httpAPI = new HttpAPI();
                     Sesion.Permisos = await httpAPI.ObtenerPermisos(usuario.NombreUsuario, "BigFOOD");
 
-                    // Cerrar el formulario
                     this.Close();
                 }
                 else
@@ -96,7 +86,6 @@ namespace AppBigFood
             }
             visible = !visible;
         }
-
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Home.token == null)

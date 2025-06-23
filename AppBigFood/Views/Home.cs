@@ -28,9 +28,6 @@ namespace AppBigFood.Views
         private decimal descuento;
         private decimal total;
         private decimal totalDolares;
-
-
-
         public Home()
         {
             InitializeComponent();
@@ -285,27 +282,7 @@ namespace AppBigFood.Views
                         estado = temp.estado
                     };
                     this.apiFactura.CrearCuentasXCobarar(cuentas);
-                    Bitacora bitaco = new Bitacora()
-                    {
-                        Tabla = "Home",
-                        Usuario = temp.Usuario,
-                        Maquina = "Home",
-                        Fecha = DateTime.Now,
-                        TipoMov = "CxC",
-                        Registro = temp.NombreCompleto
-                    };
-                    this.apiFactura.CrearBitacora(bitaco);
                 }
-                Bitacora bitacora = new Bitacora()
-                {
-                    Tabla = "Home",
-                    Usuario = temp.Usuario,
-                    Maquina = "Home",
-                    Fecha = DateTime.Now,
-                    TipoMov = "Compra",
-                    Registro = temp.NombreCompleto
-                };
-                this.apiFactura.CrearBitacora(bitacora);
                 var producto = this.apiProductos.GetProducto(int.Parse(this.dgvCarrito.Rows[0].Cells[0].Value.ToString()));
                 BLL.Producto product = new BLL.Producto()
                 {
@@ -337,7 +314,6 @@ namespace AppBigFood.Views
                     detalle.Subtotal = subtotal;
                     detalle.PorImp = (int.Parse(fila.Cells[4].Value.ToString()));
                     detalle.PorDescuento = (int.Parse(fila.Cells[5].Value.ToString()));
-
 
                     filasEliminar.Add(fila);
                     detallesFactura.Add(detalle);
@@ -453,21 +429,17 @@ namespace AppBigFood.Views
         {
             try
             {
-                // Crear instancia y llamar la API
                 this.gometa = new HttpAPI();
                 HttpClient client = this.gometa.Gometa();
 
-                // Llamar al endpoint del tipo de cambio
                 HttpResponseMessage response = client.GetAsync("/tdc/tdc.json").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
                     var contenido = response.Content.ReadAsStringAsync().Result;
 
-                    // Deserializar contenido
                     var tipoCambio = JsonConvert.DeserializeObject<TipoCambioResponse>(contenido);
 
-                    // Retornar valor (ajusta según la estructura real del JSON)
                     return (decimal)tipoCambio.Venta;
                 }
                 else
@@ -480,7 +452,7 @@ namespace AppBigFood.Views
                 MessageBox.Show("Error al consultar el tipo de cambio: " + ex.Message);
             }
 
-            return 0m; // Retorna 0 si hubo error
+            return 0m; 
         }
         public class TipoCambioResponse
         {
@@ -520,7 +492,6 @@ namespace AppBigFood.Views
                 Sesion.Permisos = new List<PermisoDTO>();
             }
         }
-
         private void informacionDeClientesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             FrmTablaClientes frm = new FrmTablaClientes();

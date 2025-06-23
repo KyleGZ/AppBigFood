@@ -35,25 +35,10 @@ namespace AppBigFood.Views.Producto
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.PasarProductos();
-        //        this.Close();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
         public BLL.Producto PasarProductos()
         {
             try
             {
-                //Se valida que el destino tenga una fila seleccionada
                 if (this.dgvTablaProductos.SelectedRows.Count <= 0)
                 {
                     throw new Exception("Seleccione la fila del producto que desea seleccionar");
@@ -79,19 +64,15 @@ namespace AppBigFood.Views.Producto
         {
             try
             {
-                //Se valida que el usuario tenga una fila seleccionada
                 if (this.dgvTablaProductos.SelectedRows.Count <= 0)
                 {
                     throw new Exception("Seleccione la fila del producto que desea eliminar");
                 }
 
-                //Solicitamos confirmacion para eliminar
                 if (MessageBox.Show("Desea eliminar el producto seleccionado", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //Se toma la fila seleccionada y se extrae el login en la celda 0
                     this.EjecutarEliminar(int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[0].Value.ToString()));
 
-                    //Se actualiza la lista
                     this.ConsultarPorNombre();
                 }
             }
@@ -133,10 +114,8 @@ namespace AppBigFood.Views.Producto
             {
                 FrmActualizarProducto frm = new FrmActualizarProducto();
 
-                //Se crea la instancia el objeto
                 BLL.Producto temp = new BLL.Producto();
 
-                //Se rellenan los campos del objeto con la fila seleccionada
                 temp.CodigoInterno = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[0].Value.ToString());
                 temp.CodigoBarra = this.dgvTablaProductos.SelectedRows[0].Cells[1].Value.ToString();
                 temp.PrecioVenta = (decimal)double.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[3].Value.ToString());
@@ -148,7 +127,6 @@ namespace AppBigFood.Views.Producto
                 temp.Existencia = int.Parse(this.dgvTablaProductos.SelectedRows[0].Cells[9].Value.ToString());
                 temp.Descripcion = this.dgvTablaProductos.SelectedRows[0].Cells[2].Value.ToString();
 
-                //Se pasa el objeto al formulario
                 frm.PasarDatos(temp);
 
                 frm.ShowDialog();
@@ -160,7 +138,6 @@ namespace AppBigFood.Views.Producto
                 throw ex;
             }
         }
-
         private void btnNew_Click(object sender, EventArgs e)
         {
             try
@@ -194,5 +171,5 @@ namespace AppBigFood.Views.Producto
             this.PasarProductos();
             this.Close();
         }
-    }//
-}//
+    }
+}
