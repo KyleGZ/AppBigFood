@@ -57,12 +57,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Auditoria\FrmBitacora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Auditoria\FrmBitacora.Designer.cs">
-      <DependentUpon>FrmBitacora.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Auditoria\FrmCuentasXCobrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,9 +142,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\Auditoria\FrmBitacora.resx">
-      <DependentUpon>FrmBitacora.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Auditoria\FrmCuentasXCobrar.resx">
       <DependentUpon>FrmCuentasXCobrar.cs</DependentUpon>
     </EmbeddedResource>
