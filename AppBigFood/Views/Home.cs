@@ -15,6 +15,7 @@ namespace AppBigFood.Views
 {
     public partial class Home : Form
     {
+
         public static string token = null;
         private APIClientes apiClientes = null;
         private APIProducto apiProductos = null;
@@ -27,6 +28,9 @@ namespace AppBigFood.Views
         private decimal descuento;
         private decimal total;
         private decimal totalDolares;
+
+
+
         public Home()
         {
             InitializeComponent();
@@ -38,12 +42,51 @@ namespace AppBigFood.Views
             this.total = 0;
             this.totalDolares = 0;
         }
-        private void informacionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void informacionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTablaClientes frm = new FrmTablaClientes();
-            frm.ShowDialog();
-            frm.Dispose();
+            //FrmTablaClientes frm = new FrmTablaClientes();
+            //frm.ShowDialog();
+            //frm.Dispose();
+
+            try
+            {
+                // Obtener el token desde la variable global Home.token
+                string token = Home.token;  // Suponiendo que el token se almacena en Home.token
+
+                // Verificar si el token está disponible
+                if (string.IsNullOrEmpty(token))
+                {
+                    MessageBox.Show("No has iniciado sesión correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Creamos la instancia de APIUsuario para llamar al método GetPermisosUsuarioLogeado
+                APIUsuario apiUsuario = new APIUsuario();
+
+                // Llamamos al método para obtener los permisos del usuario logeado, pasando el token
+                List<dynamic> permisos = await apiUsuario.GetPermisosUsuarioLogeado(token);
+
+                // Verificamos si permisos es null o no tiene elementos
+                if (permisos != null && permisos.Any(p => p.Pantalla == "Clientes"))
+                {
+                    // Si el usuario tiene permiso, abrir el formulario FrmTablaClientes
+                    FrmTablaClientes frm = new FrmTablaClientes();
+                    frm.ShowDialog();
+                    frm.Dispose();
+                }
+                else
+                {
+                    // Si el usuario no tiene el permiso, mostramos un mensaje de advertencia
+                    MessageBox.Show("No tienes permiso para acceder a esta sección.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                MessageBox.Show("Ocurrió un error al verificar los permisos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         private void informacionDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTablaProductos frm = new FrmTablaProductos();

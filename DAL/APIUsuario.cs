@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //Aquí importamos las bibliotecas
 using Newtonsoft.Json;
 using BLL;
+using Newtonsoft.Json.Linq;
 
 namespace DAL
 {
@@ -200,6 +201,69 @@ namespace DAL
                 throw new Exception("Error en Login: " + ex.Message, ex);
             }
         }
+
+        public async Task<List<dynamic>> GetPermisosUsuarioLogeado(string token)
+        {
+            try
+            {
+                // Verifica si el token no está vacío
+                if (string.IsNullOrEmpty(token))
+                {
+                    Console.WriteLine("Token vacío o nulo.");
+                    return new List<dynamic>();  // Devuelve una lista vacía si el token no es válido
+                }
+
+                // Crear la instancia de HttpClient
+                using (HttpClient client = new HttpClient())
+                {
+                    // Configurar el encabezado de autorización con el token recibido como parámetro
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+
+                    // Verifica si el token se ha añadido correctamente
+                    Console.WriteLine($"Token enviado: {token}");
+
+                    // Llamar al endpoint de permisos del usuario logueado
+                    HttpResponseMessage response = await client.GetAsync("/Usuarios/PermisosUsuarioLogeado");
+
+                    // Verificar si la respuesta es exitosa (código 200)
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Leer el contenido de la respuesta y deserializarlo
+                        var result = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Resultado recibido: {result}");
+
+                        // Deserializar la respuesta a una lista de permisos
+                        var permisos = JsonConvert.DeserializeObject<List<dynamic>>(result);
+
+                        // Opcional: Mostrar los permisos obtenidos para diagnóstico
+                        foreach (var permiso in permisos)
+                        {
+                            Console.WriteLine($"Pantalla: {permiso.Pantalla}, Permiso: {permiso.Permiso}");
+                        }
+
+                        // Retornar la lista de permisos
+                        return permisos;
+                    }
+                    else
+                    {
+                        // Si la respuesta no es exitosa, imprimir el código de error
+                        string errorResponse = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Error en la respuesta: {response.StatusCode} - {errorResponse}");
+                        return new List<dynamic>();  // Retorna una lista vacía en caso de error
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturar cualquier excepción y mostrar el mensaje de error
+                Console.WriteLine($"Error al obtener los permisos del usuario: {ex.Message}");
+                return new List<dynamic>();  // Retorna una lista vacía si ocurre un error
+            }
+        }
+
+
+
 
 
         public bool ActualizarUsuario(Usuario usuario)

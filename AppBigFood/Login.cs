@@ -26,6 +26,8 @@ namespace AppBigFood
         //Variable para usar los metodos en la api
         private HttpClient _api = null;
 
+        public Home HomeForm { get; set; }
+
         private APIUsuario _apiUsuario = null;
 
         public Login()
@@ -80,19 +82,21 @@ namespace AppBigFood
         {
             try
             {
-                // Crear usuario con los nombres de propiedad correctos
                 var usuario = new Usuario
                 {
                     NombreUsuario = this.txtUsuario.Text.Trim(),
                     Contrasena = this.txtPassword.Text.Trim()
                 };
 
-                // Llamar al método de login de tu API (debes adaptar _apiUsuario.Login a aceptar el nuevo modelo)
+                // Llamar al método de login de tu API
                 AutorizacionResponse autorizacionResponse = await this._apiUsuario.Login(usuario);
 
                 if (autorizacionResponse != null && !string.IsNullOrEmpty(autorizacionResponse.Token))
                 {
+                    // Asigna el token en Home
                     Home.token = autorizacionResponse.Token;
+
+                    // Cierra el formulario Login
                     this.Close();
                 }
                 else
@@ -105,6 +109,7 @@ namespace AppBigFood
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         private void pictureBox2_Click(object sender, EventArgs e)
